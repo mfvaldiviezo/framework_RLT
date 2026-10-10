@@ -166,6 +166,10 @@ class Signal:
             self.lane_sets_outbound[key] = list(set(self.lane_sets_outbound[key]))
 
     def switch_phase(self, new_phase: int) -> None:
+        # Hotfix para MPLight: Si la acción (new_phase) excede las fases verdes disponibles, la remapeamos
+        if new_phase not in self.green_phases and len(self.green_phases) > 0:
+            new_phase = new_phase % len(self.green_phases)
+            
         if new_phase != self.current_phase:
             self.time_since_phase[self.current_phase] = 0
             self.time_since_phase[new_phase] = 0

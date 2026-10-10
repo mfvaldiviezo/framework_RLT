@@ -1,7 +1,7 @@
-# 🚥 REPORTE DE EXPLICABILIDAD DE LA POLÍTICA (XAI SEMAFÓRICO)
+#  REPORTE DE EXPLICABILIDAD DE LA POLÍTICA (XAI SEMAFÓRICO)
 ## Tesis Doctoral: Control Semafórico Inteligente con RL Sensible al Riesgo
 **Dimensión de Auditoría:** Interpretabilidad de las Decisiones del Agente de Control (RQ3, H2)  
-**Estado:** 🟢 **OPERACIONALIZADO Y PERSISTIDO EN LA BASE DE CÓDIGO**
+**Estado:** [ALTA] **OPERACIONALIZADO Y PERSISTIDO EN LA BASE DE CÓDIGO**
 
 ---
 

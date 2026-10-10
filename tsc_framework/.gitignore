@@ -1,7 +1,8 @@
-# .gitignore para tsc_framework
-# ================================
+# ==============================================================================
+# Git Ignore Configuration - TSC Framework Package
+# ==============================================================================
 
-# ── Entornos Python ──────────────────────────────────────────────────────────
+# Python bytecode & build artifacts
 __pycache__/
 *.py[cod]
 *.pyo
@@ -12,35 +13,39 @@ dist/
 build/
 .eggs/
 
-# ── Entornos virtuales ───────────────────────────────────────────────────────
+# Virtual environments
 .env
 .venv
 env/
 venv/
+tsc-env/
+venv_pytsc/
 
-# ── Outputs del framework (permitir trackear modelos y reportes) ─────────────
-# outputs/
-# *.zip           # Modelos guardados por SB3
+# Testing & quality caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
 
-# ── Datos sensibles / crudos ─────────────────────────────────────────────────
-data/raw/*
-!data/raw/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
+# Simulation runtime logs & configs
+*.log
+*.sumo.log
+*.sumocfg.bak
+err_*.txt
+log_*.txt
 
-# ── Configuraciones SUMO de red (permitir trackear barcelona.net.xml y quito.net.xml) ─────────────────────────
-# sumo_configs/networks/*.net.xml
+# Synthetic route xml outputs (keep CSV datasets and gitkeeps)
+data/processed/routes_*.rou.xml
+data/processed/*.rou.xml
 sumo_configs/routes/*.rou.xml
 
-# ── Jupyter ──────────────────────────────────────────────────────────────────
+# Jupyter checkpoints
 .ipynb_checkpoints/
 *.ipynb
 
-# ── IDEs ─────────────────────────────────────────────────────────────────────
+# IDE & OS metadata
 .vscode/
 .idea/
 *.sublime-project
-
-# ── SO ───────────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db

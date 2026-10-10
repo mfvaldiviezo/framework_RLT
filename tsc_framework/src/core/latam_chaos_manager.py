@@ -3,12 +3,14 @@ import traci
 import math
 import random
 
+import os
+
 logger = logging.getLogger(__name__)
 
 class LatamChaosManager:
     """
-    Gestor dinámico de comportamientos LATAM vía TraCI (Versión Optimizada para Doctorado).
-    Mantiene la física original de colapso y bloqueos permanentes del candidato (setSpeed a 0.0),
+    Gestor dinámico de comportamientos LATAM vía TraCI (Módulo TraCI Optimizado).
+    Modela fenómenos de colapso y bloqueos persistentes de intersección (setSpeed a 0.0),
     pero optimiza las consultas TCP para acelerar la simulación 100 veces.
     """
     def __init__(self, tls_id="B1", probabilidad_caos=0.3):
@@ -17,6 +19,9 @@ class LatamChaosManager:
         self.police_affected_vehicles = {}
         self.assigned_vehicles = set()
         self.latam_types = {}
+        
+        # Ablation mode: "speeding_only", "tailgating_only", "blocking_only", "combined"
+        self.ablation_mode = os.environ.get("LATAM_ABLATION_MODE", "combined")
         
     def step(self):
         try:
@@ -72,10 +77,15 @@ class LatamChaosManager:
                             # 50% imprudente, 50% micro_imprudent
                             new_type = "micro_imprudent" if random.random() < 0.5 else "imprudent"
                             self.latam_types[v_id] = new_type
+                            
                             # Imprudentes aceleran más, ignoran distancia de seguridad y son agresivos
-                            traci.vehicle.setTau(v_id, 0.5) # Muy pegados
-                            traci.vehicle.setSpeedFactor(v_id, random.uniform(1.2, 1.8)) # Exceso de velocidad
-                            traci.vehicle.setImperfection(v_id, 0.9) # Conductores distraídos/erráticos
+                            if self.ablation_mode in ["combined", "tailgating_only"]:
+                                traci.vehicle.setTau(v_id, 0.5) # Muy pegados
+                            
+                            if self.ablation_mode in ["combined", "speeding_only"]:
+                                traci.vehicle.setSpeedFactor(v_id, random.uniform(1.2, 1.8)) # Exceso de velocidad
+                                traci.vehicle.setImperfection(v_id, 0.9) # Conductores distraídos/erráticos
+                                
                             traci.vehicle.setColor(v_id, (255, 0, 0)) # Rojo para visualizar el caos en la GUI
                         except traci.exceptions.TraCIException:
                             pass
@@ -88,13 +98,13 @@ class LatamChaosManager:
                         v_type = ""
                 
                 # A. MICROS: Paradas oportunistas si hay peatones cerca
-                if "micro_imprudent" in v_type and ped_positions:
+                if "micro_imprudent" in v_type and ped_positions and self.ablation_mode in ["combined", "blocking_only"]:
                     v_pos = traci.vehicle.getPosition(v_id)
                     # Buscar si hay un peatón a menos de 5 metros
                     for p_id, p_pos in ped_positions:
                         dist = math.hypot(v_pos[0] - p_pos[0], v_pos[1] - p_pos[1])
                         if dist < 5.0:
-                            # Frenado repentino fingiendo recoger pasajero (speed 0.0 permanente - Física original)
+                            # Detención imprevista en calzada por ascenso/descenso de pasajeros (speed 0.0)
                             traci.vehicle.setSpeed(v_id, 0.0)
                             break
                             
@@ -103,15 +113,15 @@ class LatamChaosManager:
                     try:
                         edge = traci.vehicle.getRoadID(v_id)
                         # 1. Si está DENTRO de un cruce (internal edge) hay un 5% de probabilidad 
-                        # de que se quede "trabado" (speed 0.0 permanente - Física original)
-                        if edge.startswith(":") and random.random() < 0.05:
+                        # de retención estática dentro del cruce (speed 0.0)
+                        if edge.startswith(":") and random.random() < 0.05 and self.ablation_mode in ["combined", "blocking_only"]:
                             traci.vehicle.setSpeed(v_id, 0.0)
                             traci.vehicle.setColor(v_id, (255, 165, 0)) # Naranja: Bloqueando cruce
 
                         # 2. Si se acerca a cualquier semáforo (no solo B1)
                         tls_links = traci.vehicle.getNextTLS(v_id)
-                        if tls_links:
-                            tls_id, tls_link_idx, dist, state = tls_links[0]
+                        if tls_links and self.ablation_mode in ["combined", "speeding_only"]:
+                            tls_id_next, tls_link_idx, dist, state = tls_links[0]
                             # Si está a menos de 20m y la luz está amarilla o roja, acelera para "ganarle" al semáforo
                             if state.lower() in ['y', 'r'] and dist < 20.0:
                                 traci.vehicle.setSpeedFactor(v_id, 2.0)

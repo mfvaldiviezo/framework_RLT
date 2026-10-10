@@ -1,0 +1,82 @@
+[
+  {
+    "model": "ppo_chaos",
+    "file_size_mb": 2.64,
+    "obs_shape": [
+      34
+    ],
+    "obs_low": 0.0,
+    "obs_high": 1.0,
+    "n_actions": 4,
+    "features_extractor": "HSARGExtractor",
+    "features_dim": 128,
+    "extractor_params": 26721,
+    "net_arch": "{'pi': [256, 256], 'vf': [256, 256]}",
+    "total_params": 225638,
+    "learning_rate": "0.0003",
+    "gamma": 0.99,
+    "n_steps": 2048,
+    "batch_size": 64,
+    "diagnosis": "[OK] COHERENTE — obs=(34,) + extractor correcto"
+  },
+  {
+    "model": "ppo_coop_chaos",
+    "file_size_mb": 2.62,
+    "obs_shape": [
+      34
+    ],
+    "obs_low": 0.0,
+    "obs_high": 1.0,
+    "n_actions": 4,
+    "features_extractor": "CoopSARGExtractor",
+    "features_dim": 128,
+    "extractor_params": 24417,
+    "net_arch": "{'pi': [256, 256], 'vf': [256, 256]}",
+    "total_params": 223334,
+    "learning_rate": "0.0003",
+    "gamma": 0.99,
+    "n_steps": 2048,
+    "batch_size": 64,
+    "diagnosis": "[OK] COHERENTE — obs=(34,) + extractor correcto"
+  },
+  {
+    "model": "ppo_coop_ideal",
+    "file_size_mb": 2.62,
+    "obs_shape": [
+      34
+    ],
+    "obs_low": 0.0,
+    "obs_high": 1.0,
+    "n_actions": 4,
+    "features_extractor": "CoopSARGExtractor",
+    "features_dim": 128,
+    "extractor_params": 24417,
+    "net_arch": "{'pi': [256, 256], 'vf': [256, 256]}",
+    "total_params": 223334,
+    "learning_rate": "0.0003",
+    "gamma": 0.99,
+    "n_steps": 2048,
+    "batch_size": 64,
+    "diagnosis": "[OK] COHERENTE — obs=(34,) + extractor correcto"
+  },
+  {
+    "model": "ppo_ideal",
+    "file_size_mb": 2.64,
+    "obs_shape": [
+      34
+    ],
+    "obs_low": 0.0,
+    "obs_high": 1.0,
+    "n_actions": 4,
+    "features_extractor": "HSARGExtractor",
+    "features_dim": 128,
+    "extractor_params": 26721,
+    "net_arch": "{'pi': [256, 256], 'vf': [256, 256]}",
+    "total_params": 225638,
+    "learning_rate": "0.0003",
+    "gamma": 0.99,
+    "n_steps": 2048,
+    "batch_size": 64,
+    "diagnosis": "[OK] COHERENTE — obs=(34,) + extractor correcto"
+  }
+]

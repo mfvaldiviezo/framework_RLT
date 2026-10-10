@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Quantitative validation of the kinematic mapping ($\sigma=0.9, \tau=0.5\,$s) against the empirical POLIDriving dataset (Quito urban telemetry). $95\%$ bootstrap confidence intervals shown in brackets [$B=1000$].}
+\label{tab:polidriving_validation}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Metric / Quantile} & \textbf{Empirical (POLIDriving)} & \textbf{Simulated (SUMO Chaos)} & $\boldsymbol{\Delta}$ & \textbf{Discrepancy (\%)} \\
+\midrule
+Jerk $P_{50}$ (m/s$^3$) & 0.100 [0.099, 0.100] & 0.960 [0.947, 0.972] & +0.860 & 860.3\% \\
+Jerk $P_{90}$ (m/s$^3$) & 0.320 [0.311, 0.330] & 3.171 [3.113, 3.236] & +2.851 & 890.9\% \\
+Jerk $P_{95}$ (m/s$^3$) & 0.450 [0.450, 0.455] & 4.633 [4.532, 4.749] & +4.183 & 929.6\% \\
+Jerk $P_{99}$ (m/s$^3$) & 0.640 [0.612, 0.650] & 6.955 [6.871, 7.054] & +6.315 & 986.7\% \\
+\midrule
+\multicolumn{5}{l}{\textbf{Distributional Distances \& Statistical Tests:}} \\
+1-Wasserstein $\mathcal{W}_1$ (Jerk) & \multicolumn{3}{c}{1.3032 m/s$^3$} & \textit{Physical unit error} \\
+1-Wasserstein $\mathcal{W}_1$ (Upper Tail $>P_{90}$) & \multicolumn{3}{c}{1.2967 m/s$^3$} & \textit{Heavy tail divergence} \\
+1-Wasserstein $\mathcal{W}_1$ (Acceleration) & \multicolumn{3}{c}{1.4345 m/s$^2$} & \textit{Kinematic envelope error} \\
+Kolmogorov-Smirnov $D$ & \multicolumn{3}{c}{0.7021 ($p = 0.00e+00$)} & \textit{Sample size: $N \approx 36,429$} \\
+\bottomrule
+\end{tabular}
+\end{table}

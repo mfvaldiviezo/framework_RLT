@@ -1,48 +1,46 @@
-```
-# Compiled and build artifacts
-*.pyc
+# ==============================================================================
+# Git Ignore Configuration - Traffic Project Repository
+# ==============================================================================
+
+# Python bytecode & caches
 __pycache__/
-
-# Dependencies
-.venv/
-venv/
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
-.vscode/
-.idea/
-
-# Python specific
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-.Python
+*.py[cod]
+*$py.class
 *.so
+.Python
 
-# Build directories
-build/
-dist/
-*.egg-info/
+# Virtual environments & local interpreters
+.env
+.venv
+env/
+venv/
+tsc-env/
+venv_pytsc/
 
-# Testing
+# Testing & linting caches
+.pytest_cache/
 .coverage
 htmlcov/
-.coverage.*
-.cache
-.pytest_cache/
 .mypy_cache/
 
-# OS generated files
+# Local personal documents & scratch archive
+_local_archive/
+*.pdf
+*.zip
+!tsc_framework/outputs/models/*.zip
+!tsc_framework/outputs/models/**/*.zip
+*.tmp
+*.swp
+*.bak
+
+# Simulation runtime logs
+*.log
+*.sumo.log
+*.sumocfg.bak
+
+# IDE & OS metadata
 .DS_Store
 Thumbs.db
-```
+.vscode/
+.idea/
+*.sublime-project

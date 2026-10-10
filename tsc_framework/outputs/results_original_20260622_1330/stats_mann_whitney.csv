@@ -1,0 +1,33 @@
+chaos_level,test,comparison,metric,U_statistic,p_value,significant,stars,effect_size_r,effect_magnitude,median_a,median_b
+0.0,Mann-Whitney U,H-SARG Caótico vs Ideal,delay_mean,415.0,0.609998,False,ns,0.0778,negligible,588.54,592.84
+0.15,Mann-Whitney U,H-SARG Caótico vs Ideal,delay_mean,493.0,0.529782,False,ns,-0.0956,negligible,573.76,589.58
+0.3,Mann-Whitney U,H-SARG Caótico vs Ideal,delay_mean,462.0,0.864994,False,ns,-0.0267,negligible,589.56,577.29
+0.5,Mann-Whitney U,H-SARG Caótico vs Ideal,delay_mean,504.0,0.428963,False,ns,-0.12,small,613.97,573.62
+0.0,Mann-Whitney U,H-SARG Caótico vs Ideal,cvar_95,756.0,6e-06,True,***,-0.68,large,3224.34,1995.81
+0.15,Mann-Whitney U,H-SARG Caótico vs Ideal,cvar_95,248.0,0.002891,True,**,0.4489,medium,2329.68,3428.13
+0.3,Mann-Whitney U,H-SARG Caótico vs Ideal,cvar_95,49.0,0.0,True,***,0.8911,large,1835.89,4561.12
+0.5,Mann-Whitney U,H-SARG Caótico vs Ideal,cvar_95,508.0,0.395267,False,ns,-0.1289,small,5056.88,4669.84
+0.0,Mann-Whitney U,Coop-Ideal vs Ideal,delay_mean,205.0,0.000301,True,***,0.5444,large,384.9,592.84
+0.15,Mann-Whitney U,Coop-Ideal vs Ideal,delay_mean,193.0,0.000149,True,***,0.5711,large,358.94,589.58
+0.3,Mann-Whitney U,Coop-Ideal vs Ideal,delay_mean,151.0,1e-05,True,***,0.6644,large,311.08,577.29
+0.5,Mann-Whitney U,Coop-Ideal vs Ideal,delay_mean,87.0,0.0,True,***,0.8067,large,291.9,573.62
+0.0,Mann-Whitney U,Coop-Ideal vs Ideal,cvar_95,236.0,0.001597,True,**,0.4756,medium,1411.22,1995.81
+0.15,Mann-Whitney U,Coop-Ideal vs Ideal,cvar_95,120.0,1e-06,True,***,0.7333,large,1612.7,3428.13
+0.3,Mann-Whitney U,Coop-Ideal vs Ideal,cvar_95,87.0,0.0,True,***,0.8067,large,1197.15,4561.12
+0.5,Mann-Whitney U,Coop-Ideal vs Ideal,cvar_95,117.0,1e-06,True,***,0.74,large,2633.32,4669.84
+0.0,Mann-Whitney U,Coop-Caos vs Caótico,delay_mean,462.0,0.864994,False,ns,-0.0267,negligible,597.61,588.54
+0.15,Mann-Whitney U,Coop-Caos vs Caótico,delay_mean,373.0,0.258051,False,ns,0.1711,small,550.26,573.76
+0.3,Mann-Whitney U,Coop-Caos vs Caótico,delay_mean,517.0,0.325527,False,ns,-0.1489,small,683.46,589.56
+0.5,Mann-Whitney U,Coop-Caos vs Caótico,delay_mean,495.0,0.510598,False,ns,-0.1,small,698.92,613.97
+0.0,Mann-Whitney U,Coop-Caos vs Caótico,cvar_95,348.0,0.133454,False,ns,0.2267,small,2841.18,3224.34
+0.15,Mann-Whitney U,Coop-Caos vs Caótico,cvar_95,349.0,0.137323,False,ns,0.2244,small,2168.79,2329.68
+0.3,Mann-Whitney U,Coop-Caos vs Caótico,cvar_95,679.0,0.00073,True,***,-0.5089,large,2891.91,1835.89
+0.5,Mann-Whitney U,Coop-Caos vs Caótico,cvar_95,221.0,0.00073,True,***,0.5089,large,3070.86,5056.88
+0.0,Mann-Whitney U,Coop-Caos vs Coop-Ideal,delay_mean,678.0,0.00077,True,***,-0.5067,large,597.61,384.9
+0.15,Mann-Whitney U,Coop-Caos vs Coop-Ideal,delay_mean,709.0,0.000132,True,***,-0.5756,large,550.26,358.94
+0.3,Mann-Whitney U,Coop-Caos vs Coop-Ideal,delay_mean,752.0,8e-06,True,***,-0.6711,large,683.46,311.08
+0.5,Mann-Whitney U,Coop-Caos vs Coop-Ideal,delay_mean,827.0,0.0,True,***,-0.8378,large,698.92,291.9
+0.0,Mann-Whitney U,Coop-Caos vs Coop-Ideal,cvar_95,747.0,1.2e-05,True,***,-0.66,large,2841.18,1411.22
+0.15,Mann-Whitney U,Coop-Caos vs Coop-Ideal,cvar_95,642.0,0.004637,True,**,-0.4267,medium,2168.79,1612.7
+0.3,Mann-Whitney U,Coop-Caos vs Coop-Ideal,cvar_95,763.0,4e-06,True,***,-0.6956,large,2891.91,1197.15
+0.5,Mann-Whitney U,Coop-Caos vs Coop-Ideal,cvar_95,558.0,0.111987,False,ns,-0.24,small,3070.86,2633.32

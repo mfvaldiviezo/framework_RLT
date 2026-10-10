@@ -21,12 +21,12 @@ def main():
         route_file = os.path.join(workspace, route_file)
         
         if not os.path.exists(net_file) or not os.path.exists(route_file):
-            print("❌ ERROR: No se pudieron encontrar los archivos de escenario con motos y peatones.")
+            print(" ERROR: No se pudieron encontrar los archivos de escenario con motos y peatones.")
             print(f"Rutas buscadas:\n - Net: {net_file}\n - Route: {route_file}")
             return
 
     print("════════════════════════════════════════════════════════════")
-    print("🚦 SIMULACIÓN VISUAL LATAM COMPLETA (MOTOS + PEATONES + BUSES)")
+    print(" SIMULACIÓN VISUAL LATAM COMPLETA (MOTOS + PEATONES + BUSES)")
     print("════════════════════════════════════════════════════════════")
     print("  • Verdes [Motos]: Motocicletas imprudentes (Lane Splitting / Sublanes)")
     print("  • Naranjas [Buses]: Micros haciendo paradas informales cerca de peatones")
@@ -60,9 +60,9 @@ def main():
         # Gestor de caos que coordina las paradas de las micros y el arrastre de peatones
         chaos_manager = LatamChaosManager(probabilidad_caos=0.4)
         
-        print("\n🚀 Simulación visual iniciada con éxito.")
-        print("💡 TIP: Presiona 'Play' en la interfaz gráfica de SUMO.")
-        print("💡 TIP: Haz zoom en los semáforos o vías para observar a los peatones celestes cruzando y las motos verdes filtrándose entre carriles.")
+        print("\n Simulación visual iniciada con éxito.")
+        print(" TIP: Presiona 'Play' en la interfaz gráfica de SUMO.")
+        print(" TIP: Haz zoom en los semáforos o vías para observar a los peatones celestes cruzando y las motos verdes filtrándose entre carriles.")
         
         step = 0
         while traci.simulation.getMinExpectedNumber() > 0:
@@ -76,9 +76,9 @@ def main():
                 print(f"  [Step {step:4d}] Autos/Motos/Buses activos: {veh_active:3d} | Peatones activos: {peds_active:3d}")
                 
     except traci.exceptions.FatalTraCIError:
-        print("\n✅ Conexión con SUMO finalizada (Ventana cerrada).")
+        print("\n Conexión con SUMO finalizada (Ventana cerrada).")
     except Exception as e:
-        print(f"\n⚠️ Ocurrió un error: {e}")
+        print(f"\n️ Ocurrió un error: {e}")
     finally:
         try:
             traci.close()

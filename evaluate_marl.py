@@ -131,20 +131,20 @@ def run_experiment(algo: str, scenario: str) -> dict:
                     pass
     except subprocess.TimeoutExpired:
         proc.kill()
-        cprint(C_RED, f"    ⚠️  TIMEOUT ({timeout}s) — el proceso fue terminado")
+        cprint(C_RED, f"    [WARNING]  TIMEOUT ({timeout}s) — el proceso fue terminado")
 
     elapsed  = round(time.time() - t0, 1)
     success  = proc.returncode == 0
 
     if success:
-        cprint(C_GREEN, f"    ✅ OK en {elapsed}s  |  Episode Reward = {episode_reward}")
+        cprint(C_GREEN, f"    [OK] OK en {elapsed}s  |  Episode Reward = {episode_reward}")
         if algo == "MAXPRESSURE":
             cprint(C_YELLOW, "    [DEBUG] MAXPRESSURE output completo:")
             for ln in (stdout_lines + stderr_lines):
                 if ln.strip():
                     print(f"       {ln}")
     else:
-        cprint(C_RED, f"    ❌ Error (código {proc.returncode})")
+        cprint(C_RED, f"    [ERROR] Error (código {proc.returncode})")
         # Mostrar todas las líneas de stdout y stderr para diagnóstico
         for ln in (stdout_lines + stderr_lines):
             if ln.strip():
@@ -245,7 +245,7 @@ def build_report(all_results: list[dict]) -> str:
             gini  = fmt(m.get("gini_temporal",        "N/D"), 4)
             cvar  = fmt(m.get("cvar95_queue",         "N/D"), 3)
             ginif = fmt(m.get("gini_final",           "N/D"), 4)
-            ok    = "✓" if r["success"] else "✗"
+            ok    = "[OK]" if r["success"] else "[FAIL]"
             slabel = "Ideal" if scen == "ideal" else "LATAM Caótico"
             lines.append(
                 f"  {algo:<18} {slabel:<20} {tput:>13} {avgq:>11} {gini:>10} {cvar:>9} {ginif:>11} {r['elapsed_s']:>10} {ok:>4}"
@@ -255,7 +255,7 @@ def build_report(all_results: list[dict]) -> str:
     # ── Análisis de degradación (resiliencia) ──
     lines += [
         "",
-        f"  {'📊 ANÁLISIS DE DEGRADACIÓN  (Ideal → LATAM Caótico)':}",
+        f"  {'[METRICS] ANÁLISIS DE DEGRADACIÓN  (Ideal → LATAM Caótico)':}",
         "─"*75,
         f"  {'ALGORITMO':<18} {'Δ Throughput':>14} {'Δ AvgQueue':>12} {'Δ Gini_temp':>13} {'Δ CVaR95':>10} {'RESILIENCIA':>13}",
         "─"*75,
@@ -281,11 +281,11 @@ def build_report(all_results: list[dict]) -> str:
             if np.isnan(dt):
                 resil = "Sin datos"
             elif abs(dt) < 10:
-                resil = "Alta  🟢"
+                resil = "Alta  [ALTA]"
             elif abs(dt) < 25:
-                resil = "Media 🟡"
+                resil = "Media [MEDIA]"
             else:
-                resil = "Baja  🔴"
+                resil = "Baja  [BAJA]"
 
             lines.append(
                 f"  {algo:<18} {fmtd(dt):>14} {fmtd(dq):>12} {fmtd(dgi):>13} {fmtd(dc):>10} {resil:>13}"
@@ -296,7 +296,7 @@ def build_report(all_results: list[dict]) -> str:
     lines += ["─"*75, ""]
 
     # ── Ranking por métrica ──
-    lines += ["  🏆 RANKING POR EFICIENCIA (Throughput — mayor es mejor)"]
+    lines += ["  [RANKING] RANKING POR EFICIENCIA (Throughput — mayor es mejor)"]
     lines += ["─"*50]
     rank_data = []
     for algo in algo_order:
@@ -306,12 +306,12 @@ def build_report(all_results: list[dict]) -> str:
                 rank_data.append((algo, scen, m["throughput_per_step"], m.get("gini_temporal","?"), m.get("cvar95_queue","?")))
     rank_data.sort(key=lambda x: x[2], reverse=True)
     for i, (a, s, t, g, c) in enumerate(rank_data, 1):
-        medal = ["🥇","🥈","🥉"][i-1] if i <= 3 else f"#{i}"
+        medal = ["[1st]","[2nd]","[3rd]"][i-1] if i <= 3 else f"#{i}"
         lines.append(f"  {medal}  {a:<15} [{s:<6}]  Throughput={t:.4f}  Gini={g}  CVaR95={c}")
     lines += ["─"*50, ""]
 
     # ── Equidad: Ranking Gini ──
-    lines += ["  ⚖️  RANKING POR EQUIDAD (Gini_temporal — menor es mejor)"]
+    lines += ["    RANKING POR EQUIDAD (Gini_temporal — menor es mejor)"]
     lines += ["─"*50]
     gini_data = []
     for algo in algo_order:
@@ -321,14 +321,14 @@ def build_report(all_results: list[dict]) -> str:
                 gini_data.append((algo, scen, m["gini_temporal"]))
     gini_data.sort(key=lambda x: x[2])
     for i, (a, s, g) in enumerate(gini_data, 1):
-        medal = ["🥇","🥈","🥉"][i-1] if i <= 3 else f"#{i}"
+        medal = ["[1st]","[2nd]","[3rd]"][i-1] if i <= 3 else f"#{i}"
         lines.append(f"  {medal}  {a:<15} [{s:<6}]  Gini = {g:.5f}")
     lines += ["─"*50, ""]
 
     # ── Notas metodológicas ──
     lines += [
         "═"*W,
-        "  📋 NOTAS METODOLÓGICAS (Capítulo 4.3.2):",
+        "   NOTAS METODOLÓGICAS (Capítulo 4.3.2):",
         "  • Throughput/step  : Vehículos que completan el recorrido por paso de simulación (↑ mejor)",
         "  • Avg Queue        : Longitud media de colas por semáforo por paso (↓ mejor)",
         "  • Gini_temporal    : Coeficiente de Gini sobre colas a lo largo del tiempo ∈ [0,1] (↓ = más equitativo)",
@@ -336,7 +336,7 @@ def build_report(all_results: list[dict]) -> str:
         "  • CVaR95(cola)     : Valor esperado del 5% peor de la distribución de colas (↓ mejor)",
         "  • Δ Degradación    : ((caótico - ideal) / |ideal|) × 100  — resiliencia al estrés LATAM",
         "  • Resiliencia      : Alta |Δ|<10%, Media |Δ|<25%, Baja |Δ|≥25%",
-        "  ⚠️  Episode Reward NO se incluye en rankings (escala incomparable entre FIXED/IPPO y CoSLight)",
+        "  [WARNING]  Episode Reward NO se incluye en rankings (escala incomparable entre FIXED/IPPO y CoSLight)",
         "═"*W,
     ]
 
@@ -350,7 +350,7 @@ def save_report(table: str, all_results: list[dict]):
     jsonf = REPORT_DIR / f"marl_eval_{ts}_raw.json"
     txt.write_text(table, encoding="utf-8")
     jsonf.write_text(json.dumps(all_results, indent=2, ensure_ascii=False), encoding="utf-8")
-    cprint(C_GREEN, f"\n  💾 Reporte guardado en:\n     {txt}\n     {jsonf}")
+    cprint(C_GREEN, f"\n  [SAVE] Reporte guardado en:\n     {txt}\n     {jsonf}")
 
 
 # ─── Main ──────────────────────────────────────────────────────────────────────
@@ -377,10 +377,10 @@ def main():
 
     scenarios_to_run = args.scenarios or ["ideal", "latam"]
 
-    box("🚦 EVALUACIÓN MARL — HANGZHOU 4×4 — TESIS DOCTORAL")
+    box(" EVALUACIÓN MARL — HANGZHOU 4×4 — TESIS DOCTORAL")
     print(f"  Algoritmos  : {algos_to_run}")
     print(f"  Escenarios  : {scenarios_to_run}")
-    print(f"  Equity (Gini/CVaR): {'✅ Activo' if EQUITY_AVAILABLE else '⚠️ Modo fallback'}")
+    print(f"  Equity (Gini/CVaR): {'[OK] Activo' if EQUITY_AVAILABLE else '[WARNING] Modo fallback'}")
     print(f"  Resultados  : {RESULTS_DIR}")
     print(f"  Reportes    : {REPORT_DIR}")
 
@@ -397,7 +397,7 @@ def main():
                 if args.skip_existing:
                     existing = find_metrics(algo, scenario)
                     if existing:
-                        cprint(C_YELLOW, "  ⏩ Resultado existente encontrado — saltando (--skip-existing)")
+                        cprint(C_YELLOW, "   Resultado existente encontrado — saltando (--skip-existing)")
                         all_results.append({
                             "algo": algo, "scenario": scenario,
                             "success": True, "elapsed_s": 0,
@@ -422,7 +422,7 @@ def main():
                 })
 
     # ─── Tabla + reporte ──────────────────────────────────────────────────────
-    box("📊 TABLA COMPARATIVA COMPLETA", width=72)
+    box("[METRICS] TABLA COMPARATIVA COMPLETA", width=72)
     report = build_report(all_results)
     print(report)
     save_report(report, all_results)
@@ -430,11 +430,11 @@ def main():
     # ─── Resumen final ────────────────────────────────────────────────────────
     failures = [r for r in all_results if not r.get("success") and not r.get("skipped")]
     if failures:
-        cprint(C_RED, f"\n  ⚠️  {len(failures)} experimento(s) fallaron:")
+        cprint(C_RED, f"\n  [WARNING]  {len(failures)} experimento(s) fallaron:")
         for f in failures:
             cprint(C_RED, f"       {f['algo']} | {f['scenario']} (código {f.get('returncode')})")
     else:
-        cprint(C_GREEN, "\n  ✅ Evaluación completada.")
+        cprint(C_GREEN, "\n  [OK] Evaluación completada.")
 
 
 if __name__ == "__main__":

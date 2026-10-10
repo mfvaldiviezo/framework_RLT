@@ -113,7 +113,7 @@ def evaluate_agent(model: Any, env: Any, n_episodes: int, label: str, max_steps_
                 obs = res
                 info_reset = {}
         except Exception as e:
-            print(f"❌ Error en reset(): {e}")
+            print(f" Error en reset(): {e}")
             try:
                 import glob
                 log_files = glob.glob(str(ROOT / "*.sumo.log"))
@@ -151,7 +151,7 @@ def evaluate_agent(model: Any, env: Any, n_episodes: int, label: str, max_steps_
                     done = False
                     info = {}
             except Exception as e:
-                print(f"⚠️ Error en step(): {e}. Terminando episodio.")
+                print(f"️ Error en step(): {e}. Terminando episodio.")
                 break
             
             # Acumular reward
@@ -265,7 +265,7 @@ def print_report(results: List[Dict]) -> None:
         base = results[1]
         if base["delay_mean"] > 0:
             delay_imp = (base["delay_mean"] - ppo["delay_mean"]) / base["delay_mean"] * 100
-            print(f"\n  ✅ Mejora PPO vs Baseline:")
+            print(f"\n   Mejora PPO vs Baseline:")
             print(f"     Delay:  {delay_imp:+.1f}%")
             if base["gini_mean"] > 0:
                 gini_imp = (base["gini_mean"] - ppo["gini_mean"]) / base["gini_mean"] * 100
@@ -282,7 +282,7 @@ def save_csv(results: List[Dict], output_path: Path) -> None:
         writer = csv.DictWriter(f, fieldnames=keys)
         writer.writeheader()
         writer.writerows(results)
-    print(f"  📄 Métricas guardadas en: {output_path}")
+    print(f"   Métricas guardadas en: {output_path}")
 
 
 def parse_args() -> argparse.Namespace:
@@ -373,12 +373,12 @@ def main() -> None:
 
     model_path = Path(args.model)
     if not model_path.exists():
-        print(f"❌ Modelo no encontrado: {model_path}")
+        print(f" Modelo no encontrado: {model_path}")
         sys.exit(1)
 
-    print(f"\n  📦 Cargando modelo: {model_path.name}")
+    print(f"\n   Cargando modelo: {model_path.name}")
     model = PPO.load(str(model_path), device="cpu")
-    print(f"  ✅ Modelo cargado")
+    print(f"   Modelo cargado")
 
     results = []
 
@@ -390,7 +390,7 @@ def main() -> None:
 
     # Evaluar Baseline
     if not args.no_baseline:
-        print(f"\n  🎲 Evaluando baseline...")
+        print(f"\n   Evaluando baseline...")
         base_env = VecMonitor(DummyVecEnv([_make_env(rank=901)]))
         class RandomAgent:
             def __init__(self, action_space): self.action_space = action_space
@@ -406,7 +406,7 @@ def main() -> None:
 
     print_report(results)
     save_csv(results, ROOT / "outputs" / "results" / "evaluation_results.csv")
-    print("  📊 TensorBoard: tensorboard --logdir outputs/tensorboard\n")
+    print("   TensorBoard: tensorboard --logdir outputs/tensorboard\n")
 
 if __name__ == "__main__":
     main()

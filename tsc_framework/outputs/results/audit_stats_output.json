@@ -1,0 +1,3128 @@
+{
+    "collapse_rates": [
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.13333333333333333,
+            "collapsed_pct": 13.333333333333334
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.2,
+            "collapsed_pct": 20.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.13333333333333333,
+            "collapsed_pct": 13.333333333333334
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.06666666666666667,
+            "collapsed_pct": 6.666666666666667
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.6333333333333333,
+            "collapsed_pct": 63.33333333333333
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.8666666666666667,
+            "collapsed_pct": 86.66666666666667
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.8666666666666667,
+            "collapsed_pct": 86.66666666666667
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.7,
+            "collapsed_pct": 70.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.36666666666666664,
+            "collapsed_pct": 36.666666666666664
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.03333333333333333,
+            "collapsed_pct": 3.3333333333333335
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 0.3333333333333333,
+            "collapsed_pct": 33.33333333333333
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 0.43333333333333335,
+            "collapsed_pct": 43.333333333333336
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.3333333333333333,
+            "collapsed_pct": 33.33333333333333
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.4,
+            "collapsed_pct": 40.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 0.23333333333333334,
+            "collapsed_pct": 23.333333333333332
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.03333333333333333,
+            "collapsed_pct": 3.3333333333333335
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 0.1,
+            "collapsed_pct": 10.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.06666666666666667,
+            "collapsed_pct": 6.666666666666667
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 0.06666666666666667,
+            "collapsed_pct": 6.666666666666667
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "ppo_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "ppo_ideal",
+            "collapsed": 0.9666666666666667,
+            "collapsed_pct": 96.66666666666667
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.06666666666666667,
+            "collapsed_pct": 6.666666666666667
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.03333333333333333,
+            "collapsed_pct": 3.3333333333333335
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.06666666666666667,
+            "collapsed_pct": 6.666666666666667
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.6666666666666666,
+            "collapsed_pct": 66.66666666666666
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.9666666666666667,
+            "collapsed_pct": 96.66666666666667
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.43333333333333335,
+            "collapsed_pct": 43.333333333333336
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "ppo_ideal",
+            "collapsed": 0.8666666666666667,
+            "collapsed_pct": 86.66666666666667
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.43333333333333335,
+            "collapsed_pct": 43.333333333333336
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "ppo_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "ppo_ideal",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 0.9666666666666667,
+            "collapsed_pct": 96.66666666666667
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.03333333333333333,
+            "collapsed_pct": 3.3333333333333335
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.13333333333333333,
+            "collapsed_pct": 13.333333333333334
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.03333333333333333,
+            "collapsed_pct": 3.3333333333333335
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "ppo_ideal",
+            "collapsed": 0.16666666666666666,
+            "collapsed_pct": 16.666666666666664
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "ppo_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.9666666666666667,
+            "collapsed_pct": 96.66666666666667
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "ppo_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "ppo_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.03333333333333333,
+            "collapsed_pct": 3.3333333333333335
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "ppo_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 1.0,
+            "collapsed_pct": 100.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "ppo_ideal",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 0.9333333333333333,
+            "collapsed_pct": 93.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.6333333333333333,
+            "collapsed_pct": 63.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.4666666666666667,
+            "collapsed_pct": 46.666666666666664
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.6,
+            "collapsed_pct": 60.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.5333333333333333,
+            "collapsed_pct": 53.333333333333336
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "ppo_ideal",
+            "collapsed": 0.6666666666666666,
+            "collapsed_pct": 66.66666666666666
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.7333333333333333,
+            "collapsed_pct": 73.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "fixed_time_opt",
+            "collapsed": 0.6,
+            "collapsed_pct": 60.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "ppo_chaos",
+            "collapsed": 0.8333333333333334,
+            "collapsed_pct": 83.33333333333334
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.9,
+            "collapsed_pct": 90.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.43333333333333335,
+            "collapsed_pct": 43.333333333333336
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "ppo_ideal",
+            "collapsed": 0.5333333333333333,
+            "collapsed_pct": 53.333333333333336
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "model": "random",
+            "collapsed": 0.9,
+            "collapsed_pct": 90.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.1,
+            "collapsed_pct": 10.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "ppo_chaos",
+            "collapsed": 0.3333333333333333,
+            "collapsed_pct": 33.33333333333333
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.2,
+            "collapsed_pct": 20.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.13333333333333333,
+            "collapsed_pct": 13.333333333333334
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "ppo_ideal",
+            "collapsed": 0.26666666666666666,
+            "collapsed_pct": 26.666666666666668
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "high",
+            "model": "random",
+            "collapsed": 0.1,
+            "collapsed_pct": 10.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "low",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "fixed_time_opt",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "ppo_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_chaos",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "ppo_coop_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "ppo_ideal",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "chaos_level": "mid_high",
+            "model": "random",
+            "collapsed": 0.0,
+            "collapsed_pct": 0.0
+        }
+    ],
+    "extreme_gini": [
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.40846016368000004
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "model": "ppo_chaos",
+            "gini_mean": 0.43037557154954237
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.43041480650349206
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.42546039216805037
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Barcelona",
+            "model": "random",
+            "gini_mean": 0.4142188322977853
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.5161462853557465
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "model": "ppo_chaos",
+            "gini_mean": 0.41520088964503005
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.5471842913554456
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.5017849421402638
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Berlin",
+            "model": "random",
+            "gini_mean": 0.5528484926578542
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.5741298702179165
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "model": "ppo_chaos",
+            "gini_mean": 0.5736356378191936
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.561399706983264
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.5727683282302999
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Bogota",
+            "model": "random",
+            "gini_mean": 0.5823315720140171
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.4482031172789909
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "model": "ppo_chaos",
+            "gini_mean": 0.4361803039557956
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.4447195259622401
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.44946675780705275
+        },
+        {
+            "experiment": "behavioral",
+            "city": "CDMX",
+            "model": "random",
+            "gini_mean": 0.4623730769641007
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.1858285946013136
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "model": "ppo_chaos",
+            "gini_mean": 0.171248616240854
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.1751855331015882
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.17590513220827916
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Madrid",
+            "model": "random",
+            "gini_mean": 0.1794189677881866
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.5212043958460153
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "model": "ppo_chaos",
+            "gini_mean": 0.5906185262356712
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.5812880634353668
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.5688548346811009
+        },
+        {
+            "experiment": "behavioral",
+            "city": "Quito",
+            "model": "random",
+            "gini_mean": 0.5284232581751076
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.3987272151029599
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "model": "ppo_chaos",
+            "gini_mean": 0.4154643944090973
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.41760189443507606
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.4114758634415489
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "model": "ppo_ideal",
+            "gini_mean": 0.4230369146108472
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Barcelona",
+            "model": "random",
+            "gini_mean": 0.40130003385633845
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.5268673180788109
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "model": "ppo_chaos",
+            "gini_mean": 0.40975221853343236
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.5377317324735406
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.49337072700217877
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "model": "ppo_ideal",
+            "gini_mean": 0.5444475447347374
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Berlin",
+            "model": "random",
+            "gini_mean": 0.5514762178455755
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.560704077891094
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "model": "ppo_chaos",
+            "gini_mean": 0.5711041272319465
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.5593211569235815
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.5666196723220593
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "model": "ppo_ideal",
+            "gini_mean": 0.5659227349084642
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Bogota",
+            "model": "random",
+            "gini_mean": 0.5712850342631788
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.5106861019458759
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "model": "ppo_chaos",
+            "gini_mean": 0.4902144542450982
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.4935394551108281
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.4942556393367273
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "model": "ppo_ideal",
+            "gini_mean": 0.4925691865278339
+        },
+        {
+            "experiment": "volumetric",
+            "city": "CDMX",
+            "model": "random",
+            "gini_mean": 0.5157011584077996
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.1765099785746778
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "model": "ppo_chaos",
+            "gini_mean": 0.16532134578575863
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.17151716184223456
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.16487963154571356
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "model": "ppo_ideal",
+            "gini_mean": 0.17423801638051867
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Madrid",
+            "model": "random",
+            "gini_mean": 0.16764314143533957
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "model": "fixed_time_opt",
+            "gini_mean": 0.5347546340415806
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "model": "ppo_chaos",
+            "gini_mean": 0.5959250473054472
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "model": "ppo_coop_chaos",
+            "gini_mean": 0.5851073475600117
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "model": "ppo_coop_ideal",
+            "gini_mean": 0.5588228333970118
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "model": "ppo_ideal",
+            "gini_mean": 0.5670585412686967
+        },
+        {
+            "experiment": "volumetric",
+            "city": "Quito",
+            "model": "random",
+            "gini_mean": 0.5318717389287841
+        }
+    ],
+    "quito_paradox": [
+        {
+            "chaos_level": "low",
+            "U": 656.0,
+            "p_value": 0.0023799639794362107,
+            "r_effect": -0.45777777777777784,
+            "median_chaos": 456.54236111111106,
+            "median_ideal": 359.28263888888887
+        },
+        {
+            "chaos_level": "mid",
+            "U": 679.0,
+            "p_value": 0.0007295106100696473,
+            "r_effect": -0.508888888888889,
+            "median_chaos": 1745.9437500000001,
+            "median_ideal": 1314.4104166666668
+        },
+        {
+            "chaos_level": "mid_high",
+            "U": 569.0,
+            "p_value": 0.07978164712498097,
+            "r_effect": -0.2644444444444445,
+            "median_chaos": 2404.6229166666667,
+            "median_ideal": 2222.50625
+        },
+        {
+            "chaos_level": "high",
+            "U": 552.0,
+            "p_value": 0.13345408758779304,
+            "r_effect": -0.22666666666666657,
+            "median_chaos": 3959.708333333333,
+            "median_ideal": 3587.948611111111
+        },
+        {
+            "chaos_level": "extreme",
+            "U": 496.0,
+            "p_value": 0.501143667603293,
+            "r_effect": -0.10222222222222221,
+            "median_chaos": 4674.933333333333,
+            "median_ideal": 4487.229166666666
+        }
+    ],
+    "marginal_impact": [
+        {
+            "city": "Barcelona",
+            "chaos_level": "low",
+            "median_vol": 105.84027777777777,
+            "median_beh": 105.32708333333335,
+            "p_value": 0.35723973380952256
+        },
+        {
+            "city": "Barcelona",
+            "chaos_level": "extreme",
+            "median_vol": 3481.3180555555555,
+            "median_beh": 3440.1722222222224,
+            "p_value": 0.08147333675070134
+        },
+        {
+            "city": "Quito",
+            "chaos_level": "low",
+            "median_vol": 291.625,
+            "median_beh": 382.1263888888889,
+            "p_value": 1.0141423896077844e-08
+        },
+        {
+            "city": "Quito",
+            "chaos_level": "extreme",
+            "median_vol": 5480.164583333333,
+            "median_beh": 4667.977777777778,
+            "p_value": 5.036525003302777e-13
+        },
+        {
+            "city": "Madrid",
+            "chaos_level": "low",
+            "median_vol": 5.358333333333333,
+            "median_beh": 5.843055555555555,
+            "p_value": 0.6803825795697072
+        },
+        {
+            "city": "Madrid",
+            "chaos_level": "extreme",
+            "median_vol": 10761.811111111112,
+            "median_beh": 10204.216666666667,
+            "p_value": 8.391670361024867e-19
+        }
+    ]
+}

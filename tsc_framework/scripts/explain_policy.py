@@ -116,10 +116,10 @@ def generate_policy_xai_report(importance: Dict[str, float], output_path: Path):
     """Genera el documento formal Markdown demostrando la explicabilidad del controlador."""
     
     md_content = []
-    md_content.append("# 🚥 REPORTE DE EXPLICABILIDAD DE LA POLÍTICA (XAI SEMAFÓRICO)")
+    md_content.append("#  REPORTE DE EXPLICABILIDAD DE LA POLÍTICA (XAI SEMAFÓRICO)")
     md_content.append("## Tesis Doctoral: Control Semafórico Inteligente con RL Sensible al Riesgo")
     md_content.append("**Dimensión de Auditoría:** Interpretabilidad de las Decisiones del Agente de Control (RQ3, H2)")
-    md_content.append("**Estado:** 🟢 **OPERACIONALIZADO Y PERSISTIDO**\n")
+    md_content.append("**Estado:**  **OPERACIONALIZADO Y PERSISTIDO**\n")
     
     md_content.append("> [!IMPORTANT]")
     md_content.append("> **Clarificación del Estado de Avance de la Tesis:**")
@@ -151,7 +151,7 @@ def generate_policy_xai_report(importance: Dict[str, float], output_path: Path):
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(md_content))
         
-    logger.info(f"📄 Reporte de Explicabilidad de la política guardado en: {output_path}")
+    logger.info(f" Reporte de Explicabilidad de la política guardado en: {output_path}")
 
 def main():
     importance = analyze_policy_weights()
@@ -159,7 +159,7 @@ def main():
     generate_policy_xai_report(importance, report_path)
     
     print("=" * 65)
-    print("  ✅ PIPELINE DE EXPLICABILIDAD DE POLÍTICA (XAI) COMPLETADO")
+    print("   PIPELINE DE EXPLICABILIDAD DE POLÍTICA (XAI) COMPLETADO")
     print(f"     Reporte generado en: {report_path.name}")
     print("=" * 65)
 

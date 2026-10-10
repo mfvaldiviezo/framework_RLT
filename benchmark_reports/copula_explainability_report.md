@@ -1,7 +1,7 @@
-# 📈 REPORTE DE EXPLICABILIDAD ESTADÍSTICA (XAI) DE LA CÓPULA
+#  REPORTE DE EXPLICABILIDAD ESTADÍSTICA (XAI) DE LA CÓPULA
 ## Tesis Doctoral: Control Semafórico Inteligente con Aprendizaje por Refuerzo Sensible al Riesgo
 **Dimensión de Explicabilidad (XAI) e Interpretabilidad de Escenarios (RQ1, H1)**  
-**Estado:** 🟢 **OPERACIONALIZADO Y PERSISTIDO EN LA BASE DE CÓDIGO**
+**Estado:** [ALTA] **OPERACIONALIZADO Y PERSISTIDO EN LA BASE DE CÓDIGO**
 
 ---
 
@@ -44,7 +44,7 @@ En el Capítulo 1 (RQ1), formulaste la necesidad de cuantificar la interacción 
 
 Para sobrevivir al caos vial, el semáforo inteligente debe entender la probabilidad de que ocurran anomalías extremas conjuntas (shocks de demanda o accidentes simultáneos). En lugar de estimadores opacos, la cópula calcula y audita de forma explícita los **Coeficientes de Dependencia de Cola Superior e Inferior ($\lambda_U, \lambda_L$)**:
 
-### 🔗 1. demand_access_0 (Norte) ↔ demand_access_1 (Sur)
+###  1. demand_access_0 (Norte) ↔ demand_access_1 (Sur)
 *   **Descripción:** Concurrencia y acoplamiento de flujo entre las avenidas principales concurrentes de la intersección.
 *   **Kendall's Tau ($\tau$):** `0.4852` (Correlación moderada-alta)
 *   **Cola Superior ($\lambda_U$):** `0.3240` (Sensibilidad a picos conjuntos)
@@ -54,7 +54,7 @@ Para sobrevivir al caos vial, el semáforo inteligente debe entender la probabil
 
 ---
 
-### 🔗 2. demand_access_0 ↔ incident_prob_peak
+###  2. demand_access_0 ↔ incident_prob_peak
 *   **Descripción:** Relación estocástica entre el volumen de demanda de entrada y la probabilidad de un accidente en hora pico.
 *   **Kendall's Tau ($\tau$):** `0.2245` (Correlación débil positiva)
 *   **Cola Superior ($\lambda_U$):** `0.0210`
@@ -64,7 +64,7 @@ Para sobrevivir al caos vial, el semáforo inteligente debe entender la probabil
 
 ---
 
-### 🔗 3. incident_prob_peak ↔ incident_prob_offpeak
+###  3. incident_prob_peak ↔ incident_prob_offpeak
 *   **Descripción:** Acoplamiento temporal del riesgo entre periodos pico y valle.
 *   **Kendall's Tau ($\tau$):** `0.1850`
 *   **Cola Superior ($\lambda_U$):** `0.1540`
@@ -74,7 +74,7 @@ Para sobrevivir al caos vial, el semáforo inteligente debe entender la probabil
 
 ---
 
-## 🎓 Aportación Científica para tu Defensa Doctoral (H1)
+##  Aportación Científica para tu Defensa Doctoral (H1)
 
 1.  **Auditoría Transparente:** Ante la pregunta del jurado de *"¿cómo sabemos que el simulador no genera datos de fantasía?"*, puedes presentar este reporte. Las Vine Copulas demuestran de forma transparente e incontrovertible los parámetros de cola ($\lambda$) y las familias seleccionadas (Gumbel/Clayton) calibradas con datos de Quito.
 2.  **Soporte del CVaR:** Este análisis de colas justifica científicamente el diseño de la función de recompensa del agente. Dado que existe dependencia de cola pesada en las demandas ($\lambda_U = 0.32$), el promedio clásico (esperanza) fallaría ante picos conjuntos. El **CVaR** al castigar el peor 5% de las colas es la única medida matemáticamente coherente capaz de absorber estos shocks de cola detectados por la cópula.

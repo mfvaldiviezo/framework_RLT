@@ -185,7 +185,7 @@ def load_joint_data(
 
     # Eliminar filas con cualquier NaN residual
     joint_df = joint_df.dropna().reset_index(drop=True)
-    logger.info(f"✓ Dataset conjunto: {len(joint_df):,} observaciones × {joint_df.shape[1]} variables")
+    logger.info(f" Dataset conjunto: {len(joint_df):,} observaciones × {joint_df.shape[1]} variables")
 
     return joint_df
 
@@ -231,7 +231,7 @@ def to_pseudo_observations(data: pd.DataFrame) -> np.ndarray:
     assert (pseudo > 0).all() and (pseudo < 1).all(), \
         "¡Error PIT! Existen valores fuera del dominio (0, 1)."
 
-    logger.info(f"✓ Pseudo-observaciones: shape {pseudo.shape} — dtype {pseudo.dtype}")
+    logger.info(f" Pseudo-observaciones: shape {pseudo.shape} — dtype {pseudo.dtype}")
     return pseudo
 
 
@@ -305,7 +305,7 @@ def fit_vine_copula(pseudo_obs: np.ndarray) -> object:
         dimension = data_f64.shape[1]
         cop = pv.Vinecop(d=dimension)
         cop.select(data=data_f64, controls=controls)
-        logger.info(f"✓ Vine Copula ajustada:")
+        logger.info(f" Vine Copula ajustada:")
         logger.info(f"  • Log-verosimilitud: {cop.loglik(data_f64):.4f}")
         logger.info(f"  • AIC:               {cop.aic(data_f64):.4f}")
         logger.info(f"  • BIC:               {cop.bic(data_f64):.4f}")
@@ -408,7 +408,7 @@ def simulate_stress_scenarios(
 
     # Escenarios de cola pesada (estrés > percentil 90)
     n_extreme = (scenarios_df["stress_percentile"] > 0.90).sum()
-    logger.info(f"\n✓ Escenarios generados: {len(scenarios_df):,} total | "
+    logger.info(f"\n Escenarios generados: {len(scenarios_df):,} total | "
                 f"{n_extreme:,} escenarios extremos (>p90)")
 
     return scenarios_df
@@ -441,7 +441,7 @@ def export_results(
 
     # ── CSV de escenarios ──────────────────────────────────────────────────
     scenarios_df.to_csv(SCENARIOS_CSV, index=False)
-    logger.info(f"✓ stress_scenarios.csv → {SCENARIOS_CSV}")
+    logger.info(f" stress_scenarios.csv → {SCENARIOS_CSV}")
 
     # ── Resumen JSON para la tesis ─────────────────────────────────────────
     n, d = pseudo_obs.shape
@@ -485,7 +485,7 @@ def export_results(
 
     with COPULA_SUMMARY_JSON.open("w", encoding="utf-8") as fh:
         json.dump(summary, fh, indent=2, ensure_ascii=False)
-    logger.info(f"✓ vine_copula_summary.json → {COPULA_SUMMARY_JSON}")
+    logger.info(f" vine_copula_summary.json → {COPULA_SUMMARY_JSON}")
 
     return summary
 

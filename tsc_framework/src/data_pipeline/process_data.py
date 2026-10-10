@@ -78,11 +78,11 @@ def _ensure_processed_dir() -> None:
 def _find_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
     """
     Busca la primera columna del DataFrame cuyo nombre (case-insensitive)
-    coincida con alguno de los candidatos dados.
+    coincida con alguno de los nombres dados.
 
     Args:
         df: DataFrame a inspeccionar.
-        candidates: Lista de nombres de columna candidatos.
+        candidates: Lista de nombres de columna de búsqueda.
 
     Returns:
         Nombre de la columna encontrada o None si no existe.
@@ -285,7 +285,7 @@ def process_macro_flows() -> pd.DataFrame | None:
     demand_df = demand_df.sort_values(["source_city", "source_file", "time_bin_s"])
 
     demand_df.to_csv(MACRO_OUTPUT, index=False)
-    logger.info(f"✓ macro_demand.csv exportado → {MACRO_OUTPUT}")
+    logger.info(f" macro_demand.csv exportado → {MACRO_OUTPUT}")
     logger.info(f"  Filas totales: {len(demand_df):,} | "
                 f"Ciudades: {demand_df['source_city'].nunique()} | "
                 f"Archivos: {demand_df['source_file'].nunique()}")
@@ -563,7 +563,7 @@ def process_micro_behavior() -> tuple[pd.DataFrame | None, dict[str, Any] | None
         trip_subset.insert(2, "source_file", csv_file.name)
 
         trip_dfs.append(trip_subset)
-        logger.info(f"  ✓ Viaje procesado: {len(trip_subset):,} muestras válidas.")
+        logger.info(f"   Viaje procesado: {len(trip_subset):,} muestras válidas.")
 
     if not trip_dfs:
         logger.error("No se procesó ningún viaje de PoliDriving.")
@@ -607,12 +607,12 @@ def process_micro_behavior() -> tuple[pd.DataFrame | None, dict[str, Any] | None
 
     # --- Exportar CSV ---
     behavior_df.to_csv(MICRO_OUTPUT, index=False)
-    logger.info(f"✓ micro_behavior.csv exportado → {MICRO_OUTPUT}")
+    logger.info(f" micro_behavior.csv exportado → {MICRO_OUTPUT}")
 
     # --- Exportar JSON de estadísticas ---
     with MICRO_STATS_OUTPUT.open("w", encoding="utf-8") as fh:
         json.dump(stats, fh, indent=2, ensure_ascii=False)
-    logger.info(f"✓ micro_stats.json exportado → {MICRO_STATS_OUTPUT}")
+    logger.info(f" micro_stats.json exportado → {MICRO_STATS_OUTPUT}")
 
     return behavior_df, stats
 

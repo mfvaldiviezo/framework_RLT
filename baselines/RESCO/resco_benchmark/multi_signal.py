@@ -76,6 +76,7 @@ class MultiSignal(gym.Env):
 
         self.sumo_start()
         self._arrived_total = 0  # Accumulated throughput counter
+        self._teleports_total = 0 # Accumulated teleports (collisions/gridlocks)
         self.signal_ids = self.sumo.trafficlight.getIDList()
         logger.info("lights {0} {1}".format(len(self.signal_ids), self.signal_ids))
         # self.signal_ids = [] This will pass through all control to SUMO's .net.xml TLLogic controllers
@@ -257,7 +258,9 @@ class MultiSignal(gym.Env):
 
             # Lógica LATAM: Activar colisiones y atascos reales (gridlocks)
             is_latam = getattr(cfg, 'latam_chaos', False) or 'latam' in str(getattr(cfg, 'route', '')).lower()
-            time_to_teleport = "150" if is_latam else "-1"
+            # Forzamos -1 en ambos para que los vehículos atascados no desaparezcan mágicamente.
+            # Los únicos teleports que ocurrirán en LATAM serán por choques explícitos (--collision.action teleport)
+            time_to_teleport = "-1"
 
             self.sumo_cmd = [
                 binary,
@@ -583,6 +586,7 @@ class MultiSignal(gym.Env):
                     "steps":            _step_count,
                     "avg_queue_length": round(_avg_q, 4),
                     "throughput_total": _arrived,
+                    "teleports_total":  self._teleports_total,
                     "throughput_per_step": round(_arrived / max(_step_count, 1), 5),
                     # Equidad — Capítulo 4.3.2
                     "gini_temporal":    round(_gini, 5),       # Gini sobre colas por paso
@@ -616,8 +620,9 @@ class MultiSignal(gym.Env):
         queue_lengths, max_queues, vehicles, phase_length = (
             dict(), dict(), dict(), dict(),
         )
-        # Accumulate arrived vehicles across all steps (getArrivedNumber is instantaneous)
+        # Accumulate arrived vehicles and teleported vehicles across all steps
         self._arrived_total += self.sumo.simulation.getArrivedNumber()
+        self._teleports_total += self.sumo.simulation.getStartingTeleportNumber()
 
         for signal_id in self.signals:
             signal = self.signals[signal_id]

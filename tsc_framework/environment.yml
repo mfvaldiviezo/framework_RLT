@@ -16,7 +16,7 @@ dependencies:
   - seaborn>=0.12
 
   # ── Entorno de Aprendizaje por Refuerzo ──────────────────────────────────────
-  - gymnasium>=0.29             # API Gym moderna (sucesor de OpenAI Gym)
+  - gymnasium>=0.29             # API Gymnasium estándar para entornos RL
 
   # ── PyTorch (conda-forge) ─────────────────────────────────────────────────
   # Con GPU NVIDIA: reemplaza 'pytorch' por 'pytorch-gpu' o instala desde

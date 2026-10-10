@@ -315,7 +315,7 @@ class TSCEnv(gym.Env):
         # Para llegar a 34: usamos presión por lane de entrada (8 lanes)
         # q(12) + w(12) + p(8) + φ(4) + τ(2) = 38 → ajustamos p a 4
         # Opción final según user spec: s_t = [q_t, w_t, p_t, φ_t, τ_t] ∈ ℝ^34
-        # Interpretación: q(12) + w(12) + p(4) + φ(4) + τ(2) = 34 ✓
+        # Interpretación: q(12) + w(12) + p(4) + φ(4) + τ(2) = 34 
         self._obs_dim = 34
         
         self.observation_space = spaces.Box(
@@ -489,9 +489,13 @@ class TSCEnv(gym.Env):
                 try:
                     step_teleports += traci.simulation.getStartingTeleportNumber()
                     step_collisions += traci.simulation.getCollidingVehiclesNumber()
+                    step_co2 += sum(traci.lane.getCO2Emission(lane) for lane in self._controlled_lanes)
+                    step_fuel += sum(traci.lane.getFuelConsumption(lane) for lane in self._controlled_lanes)
                 except NameError:
                     step_teleports = traci.simulation.getStartingTeleportNumber()
                     step_collisions = traci.simulation.getCollidingVehiclesNumber()
+                    step_co2 = sum(traci.lane.getCO2Emission(lane) for lane in self._controlled_lanes)
+                    step_fuel = sum(traci.lane.getFuelConsumption(lane) for lane in self._controlled_lanes)
         except Exception as e:
             err_msg = str(e)
             if "FatalTraCI" in type(e).__name__ or "Connection closed" in err_msg or "closed by SUMO" in err_msg:
@@ -543,6 +547,8 @@ class TSCEnv(gym.Env):
             "reward": reward,
             "teleports": step_teleports if 'step_teleports' in locals() else 0,
             "collisions": step_collisions if 'step_collisions' in locals() else 0,
+            "co2": step_co2 if 'step_co2' in locals() else 0.0,
+            "fuel": step_fuel if 'step_fuel' in locals() else 0.0,
         }
         
         if terminated or truncated:

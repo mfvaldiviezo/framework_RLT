@@ -1,0 +1,47 @@
+{
+  "model": "Vine Copula (pyvinecopulib)",
+  "variables": [
+    "demand",
+    "accel_magnitude",
+    "jerk"
+  ],
+  "n_observations_training": 38,
+  "n_dimensions": 3,
+  "n_scenarios_generated": 2000,
+  "selection_criterion": "AIC",
+  "transform": "Probability Integral Transform (empirical rank / (n+1))",
+  "inverse_transform": "Empirical Quantile Function (np.percentile)",
+  "random_seed": 42,
+  "log_likelihood": 2.496278299212447,
+  "aic": 1.007443401575106,
+  "bic": 5.920201880754263,
+  "scenario_statistics": {
+    "demand": {
+      "mean": 1622.7317728803541,
+      "std": 974.0032863736442,
+      "min": 383.5786561680928,
+      "p5": 606.4401563497048,
+      "p50": 1338.140586019717,
+      "p95": 3963.108244607934,
+      "max": 4243.402326684144
+    },
+    "accel_magnitude": {
+      "mean": 0.35980588761339133,
+      "std": 0.2726069705750654,
+      "min": 0.0,
+      "p5": 0.0,
+      "p50": 0.37536070522826437,
+      "p95": 0.7554333424372502,
+      "max": 1.107686507647668
+    },
+    "jerk": {
+      "mean": -0.011554569770833606,
+      "std": 0.15113333489894054,
+      "min": -0.4402151050107732,
+      "p5": -0.3246648235343983,
+      "p50": 0.0,
+      "p95": 0.26490133406361555,
+      "max": 0.7153225648030639
+    }
+  }
+}

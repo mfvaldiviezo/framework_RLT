@@ -67,7 +67,7 @@ def evaluate(
 
     logger.info(f"Cargando modelo: {zip_path}")
     model = PPO.load(str(model_path), device="cpu")
-    logger.info("  ✓ Modelo cargado.")
+    logger.info("   Modelo cargado.")
 
     # ── Crear entorno con SUMO-GUI ─────────────────────────────────────────
     logger.info("Iniciando TrafficEnv con SUMO-GUI...")
@@ -141,11 +141,11 @@ def evaluate(
 
     # Interpretación del Gini
     if mean_gini < 0.20:
-        equity_label = "✅ Alta equidad"
+        equity_label = " Alta equidad"
     elif mean_gini < 0.40:
-        equity_label = "⚠️  Equidad moderada"
+        equity_label = "️  Equidad moderada"
     else:
-        equity_label = "❌ Alta inequidad"
+        equity_label = " Alta inequidad"
     logger.info(f"  Equidad distributiva:   {equity_label}")
 
     return {

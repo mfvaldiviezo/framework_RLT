@@ -4,10 +4,8 @@ from resco_benchmark.config.config import config as cfg
 
 class Agent(object):
     def __init__(self):
-        if torch.cuda.is_available():
-            device = "cuda:" + str(cfg.gpu)
-        else:
-            device = "cpu"
+        # Force CPU to avoid GTX 1050 sm_61 architecture mismatch error
+        device = "cpu"
         self.device = torch.device(device)
         cfg.device = torch.device(device)
 

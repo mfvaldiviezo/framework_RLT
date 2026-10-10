@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="C:\Proyecto_Tesis_Final_V1\traffic_project\tsc_framework\sumo_configs\networks\quito.net.xml"/>
+        <route-files value="C:\Proyecto_Tesis_Final_V1\traffic_project\tsc_framework\sumo_configs\routes\quito.net_multi_agent_extreme.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="1000"/>
+    </time>
+    <processing>
+        <time-to-teleport value="-1"/>
+        <waiting-time-memory value="1000"/>
+    </processing>
+</configuration>

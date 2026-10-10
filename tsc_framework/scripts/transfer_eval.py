@@ -57,7 +57,7 @@ def discover_tls_id(net_xml_path: Path) -> str:
             if tls_id:
                 return tls_id
     except Exception as e:
-        print(f"⚠️ Error parsing {net_xml_path.name} to discover TLS: {e}")
+        print(f"️ Error parsing {net_xml_path.name} to discover TLS: {e}")
     return "J0"  # Fallback estándar
 
 def discover_vehicular_tls_id(net_xml_path: Path, allowed_edges: set) -> str:
@@ -73,10 +73,10 @@ def discover_vehicular_tls_id(net_xml_path: Path, allowed_edges: set) -> str:
                 tls_counts[tl] = tls_counts.get(tl, 0) + 1
         if tls_counts:
             best_tls = max(tls_counts, key=tls_counts.get)
-            print(f"   🔍 Semáforo Vehicular Óptimo Autodetectado: '{best_tls}' con {tls_counts[best_tls]} conexiones de autos.")
+            print(f"    Semáforo Vehicular Óptimo Autodetectado: '{best_tls}' con {tls_counts[best_tls]} conexiones de autos.")
             return best_tls
     except Exception as e:
-        print(f"⚠️ Error descubriendo semáforo óptimo: {e}")
+        print(f"️ Error descubriendo semáforo óptimo: {e}")
     return discover_tls_id(net_xml_path)
 
 
@@ -134,7 +134,7 @@ def generate_eval_sumocfg(net_path: Path, route_path: Path, rank: int, steps: in
 
 # ── Simulación y Recolección de Métricas ──────────────────────────────────────
 def run_transfer_simulation(model: PPO, net_path: Path, route_path: Path, label: str, seed: int, steps_limit: int, lateral_res: float = None) -> Dict[str, Any]:
-    print(f"\n🚀 Iniciando Simulación de Transferencia Zero-Shot: {label}")
+    print(f"\n Iniciando Simulación de Transferencia Zero-Shot: {label}")
     print(f"   Red: {net_path.name} | Rutas: {route_path.name}")
     
     allowed_edges = get_allowed_passenger_edges(net_path)
@@ -150,7 +150,7 @@ def run_transfer_simulation(model: PPO, net_path: Path, route_path: Path, label:
     sumo_bin = shutil.which("sumo") or "sumo"
     diag_res = subprocess.run([sumo_bin, "-c", sumocfg, "-e", "5"], capture_output=True, text=True)
     if diag_res.returncode != 0:
-        print(f"\n❌ ERROR DE VALIDACIÓN DE SUMO PARA {label}:")
+        print(f"\n ERROR DE VALIDACIÓN DE SUMO PARA {label}:")
         print(diag_res.stderr)
         print("-" * 65)
 
@@ -199,7 +199,7 @@ def run_transfer_simulation(model: PPO, net_path: Path, route_path: Path, label:
     mean_gini = float(np.mean(ginis)) if ginis else 0.0
     cvar_val = cvar_90(delays)
     
-    print(f"🏆 Simulación {label} Finalizada | Delay Promedio: {mean_delay:.3f}s | Gini: {mean_gini:.3f} | CVaR₉₀: {cvar_val:.3f}")
+    print(f" Simulación {label} Finalizada | Delay Promedio: {mean_delay:.3f}s | Gini: {mean_gini:.3f} | CVaR₉₀: {cvar_val:.3f}")
     
     return {
         "label": label,
@@ -234,9 +234,9 @@ def generate_random_routes(net_path: Path, steps_limit: int) -> Path:
             "-p", "2.0",  # Frecuencia: 1 vehículo cada 2 segundos (tráfico medio-alto)
             "--validate"
         ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        print(f"   ✅ Flujos viales validados para: {route_path.name}")
+        print(f"    Flujos viales validados para: {route_path.name}")
     except Exception as e:
-        print(f"⚠️ Error al generar rutas aleatorias: {e}")
+        print(f"️ Error al generar rutas aleatorias: {e}")
     return route_path
 
 # ── Analizador de Permisos Viales para Vehículos de Pasajeros ─────────────────
@@ -272,7 +272,7 @@ def get_allowed_passenger_edges(net_xml_path: Path) -> set:
             if edge_allows:
                 allowed_edges.add(edge_id)
     except Exception as e:
-        print(f"⚠️ Error al parsear permisos de aristas: {e}")
+        print(f"️ Error al parsear permisos de aristas: {e}")
     return allowed_edges
 
 # ── Inyección Directa de Tráfico de Alta Densidad en Intersección (JFI) ───────
@@ -301,18 +301,18 @@ def generate_junction_traffic(net_path: Path, steps_limit: int) -> Path:
                 if to_edge and to_edge in allowed_edges and to_edge not in outgoing:
                     outgoing.append(to_edge)
     except Exception as e:
-        print(f"⚠️ Error parsing network edges: {e}")
+        print(f"️ Error parsing network edges: {e}")
         
     tmp_dir = tempfile.gettempdir()
     route_path = Path(tmp_dir) / f"{net_path.stem}_routes.rou.xml"
     
     # Si no hay conexiones específicas (caso raro), usar randomTrips
     if not incoming or not outgoing:
-        print(f"   ⚠️ No se detectaron conexiones viales directas de autos para '{tls_id}'. Usando randomTrips...")
+        print(f"   ️ No se detectaron conexiones viales directas de autos para '{tls_id}'. Usando randomTrips...")
         return generate_random_routes(net_path, steps_limit)
         
-    print(f"   🎯 Conexiones de Autos en Semáforo '{tls_id}': {len(incoming)} entrantes, {len(outgoing)} salientes.")
-    print(f"   🚙 Inyectando flujos de tráfico directamente hacia el semáforo para simular estrés...")
+    print(f"    Conexiones de Autos en Semáforo '{tls_id}': {len(incoming)} entrantes, {len(outgoing)} salientes.")
+    print(f"    Inyectando flujos de tráfico directamente hacia el semáforo para simular estrés...")
 
     
     try:
@@ -332,9 +332,9 @@ def generate_junction_traffic(net_path: Path, steps_limit: int) -> Path:
         
         with open(str(route_path), 'w', encoding='utf-8') as f:
             f.write('\n'.join(xml_content))
-        print(f"   ✅ Flujo de estrés inyectado con éxito: {route_path.name} ({flow_idx} flujos activos)")
+        print(f"    Flujo de estrés inyectado con éxito: {route_path.name} ({flow_idx} flujos activos)")
     except Exception as e:
-        print(f"⚠️ Error al escribir flujos directos: {e}. Usando randomTrips.")
+        print(f"️ Error al escribir flujos directos: {e}. Usando randomTrips.")
         return generate_random_routes(net_path, steps_limit)
         
     return route_path
@@ -357,14 +357,14 @@ def write_thesis_report(results: Dict[str, List[Dict[str, Any]]], report_path: P
         gain_bcn = ((ideal_bcn['delay_mean'] - chaos_bcn['delay_mean']) / max(ideal_bcn['delay_mean'], 1e-5)) * 100
         gain_qto = ((ideal_qto['delay_mean'] - chaos_qto['delay_mean']) / max(ideal_qto['delay_mean'], 1e-5)) * 100
         
-        md_content = f"""# 📊 INFORME DOCTORAL COMPARATIVO: EFECTO DEL ENTRENAMIENTO CAÓTICO LATAM
-**Candidato:** Marcelo  
+        md_content = f"""#  INFORME DOCTORAL COMPARATIVO: EFECTO DEL ENTRENAMIENTO CAÓTICO LATAM
+**Autor:** Marcelo Valdiviezo-Condolo  
 **Modelo Evaluado:** H-SARG (Hybrid Self-Attention Gated Risk)  
 **Hipótesis de Tesis:** *Un modelo expuesto a la entropía y el caos conductual de LATAM (adelantamientos, subcarriles y micros) desarrolla una política de control más robusta y generaliza con mayor eficiencia en cualquier escenario en comparación con un modelo entrenado en condiciones ideales.*
 
 ---
 
-## 📈 Tabla Comparativa de Generalización (Ideal vs. Entrenamiento con Caos)
+##  Tabla Comparativa de Generalización (Ideal vs. Entrenamiento con Caos)
 
 | Métrica Científica | BCN (Entrenado Ideal) | BCN (Entrenado Caos LATAM) | Mejora BCN | QTO (Entrenado Ideal) | QTO (Entrenado Caos LATAM) | Mejora QTO |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -376,7 +376,7 @@ def write_thesis_report(results: Dict[str, List[Dict[str, Any]]], report_path: P
 
 ---
 
-## 🔬 Discusión Científica y Conclusiones del Experimento
+##  Discusión Científica y Conclusiones del Experimento
 
 1. **Evidencia Empírica de Robustez al Caos:**
    Los resultados proporcionan evidencia empírica **consistente con la hipótesis doctoral**. El modelo entrenado con tráfico caótico LATAM muestra mejoras descriptivas frente al modelo entrenado con tráfico ideal en Quito, reduciendo simultáneamente delay, Gini y CVaR₉₀. Estas diferencias no alcanzan significancia estadística formal con n=10 (Mann-Whitney p>0.05), por lo que deben interpretarse como indicativas y requieren validación con n≥30.
@@ -385,7 +385,7 @@ def write_thesis_report(results: Dict[str, List[Dict[str, Any]]], report_path: P
    Al haber aprendido a balancear carriles virtuales en condiciones hostiles, la compuerta de atención (MHSA) del H-SARG entrenado con caos reacciona con mayor rapidez, logrando una distribución de tiempos de verde mucho más equitativa (reducción del Índice de Gini de injusticia).
 
 ---
-*Reporte autogenerado por el TSC Framework para la tesis doctoral de Marcelo.*
+*Reporte de evaluación experimental generado por el Framework TSC.*
 """
     else:
         # Reporte simple (comportamiento anterior)
@@ -393,16 +393,16 @@ def write_thesis_report(results: Dict[str, List[Dict[str, Any]]], report_path: P
         res_bcn = results[key][0]
         res_qto = results[key][1]
         
-        md_content = f"""# 📊 INFORME DOCTORAL: EVALUACIÓN TRANSREGIONAL DE H-SARG
-**Candidato:** Marcelo  
+        md_content = f"""#  INFORME DOCTORAL: EVALUACIÓN TRANSREGIONAL DE H-SARG
+**Autor:** Marcelo Valdiviezo-Condolo  
 **Modelo Evaluado:** H-SARG (Modelo: {key})  
 **Esquema de Prueba:** Transferencia Zero-Shot (Sin re-entrenamiento en destino)
 
 ---
 
-## 📈 Tabla Comparativa de Rendimiento Regional
+##  Tabla Comparativa de Rendimiento Regional
 
-| Métrica Científica | Escenario 🇪🇸 Barcelona (Orden) | Escenario 🇪🇨 Quito (Caos) | ¿Qué demuestra este resultado? |
+| Métrica Científica | Escenario  Barcelona (Orden) | Escenario  Quito (Caos) | ¿Qué demuestra este resultado? |
 | :--- | :---: | :---: | :--- |
 | **Delay Promedio (s)** | {res_bcn['delay_mean']:.4f} s | {res_qto['delay_mean']:.4f} s | Evalúa la eficiencia del flujo de tráfico promedio. |
 | **Cola Promedio (veh)** | {res_bcn['queue_mean']:.2f} veh | {res_qto['queue_mean']:.2f} veh | Muestra la acumulación de atascos espaciales. |
@@ -412,18 +412,18 @@ def write_thesis_report(results: Dict[str, List[Dict[str, Any]]], report_path: P
 
 ---
 
-## 🔬 Discusión de los Resultados y Conclusión Doctoral
+##  Discusión de los Resultados y Conclusión Doctoral
 
 1. **La Hipótesis de la Invarianza al Caos:**
    El modelo entrenado H-SARG demuestra una **resiliencia transregional ejemplar**. Bajo la cuadrícula europea coordinada de **Barcelona**, H-SARG se adapta de forma fluida logrando una cola física de apenas `{res_bcn['queue_mean']:.2f} veh` y un índice de equidad Gini de `{res_bcn['gini_mean']:.4f}`, lo que prueba que *el orden está estadísticamente contenido dentro del caos conductual* con el que fue entrenado el modelo.
 
 ---
-*Reporte autogenerado por el TSC Framework para la tesis doctoral de Marcelo.*
+*Reporte de evaluación experimental generado por el Framework TSC.*
 """
     
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write(md_content)
-    print(f"\n✨ ¡Reporte Doctoral guardado exitosamente en: {report_path.name}!")
+    print(f"\n ¡Reporte Doctoral guardado exitosamente en: {report_path.name}!")
 
 # ── Main Entrypoint ───────────────────────────────────────────────────────────
 def main() -> None:
@@ -435,7 +435,7 @@ def main() -> None:
     
     # Comprobar redes compiladas
     if not quito_net.exists() or not barcelona_net.exists():
-        print(f"❌ Error: Asegúrese de compilar las redes quito.net.xml y barcelona.net.xml primero.")
+        print(f" Error: Asegúrese de compilar las redes quito.net.xml y barcelona.net.xml primero.")
         sys.exit(1)
         
     print("=" * 65)
@@ -446,23 +446,31 @@ def main() -> None:
     barcelona_route = generate_junction_traffic(barcelona_net, 720)
     quito_route = generate_junction_traffic(quito_net, 720)
     
-    # Mapear modelos disponibles
-    model_zip = ROOT / "outputs/models/ppo_final.zip"
-    model_ideal_zip = ROOT / "outputs/models/ppo_ideal.zip"
-    model_chaos_zip = ROOT / "outputs/models/ppo_chaos.zip"
-    
-    models_to_eval = {}
-    if model_ideal_zip.exists() and model_chaos_zip.exists():
-        print("💡 ¡Se detectaron ambos modelos (Ideal y Caos)! Iniciando evaluación comparativa...")
-        models_to_eval["Ideal"] = model_ideal_zip
-        models_to_eval["Caos (LATAM)"] = model_chaos_zip
-    elif model_zip.exists():
-        print(f"📦 Usando modelo único: {model_zip.name}...")
-        models_to_eval["H-SARG"] = model_zip
+    # ── Descubrimiento automático de todos los modelos disponibles ──────────────
+    # Prioridad: ppo_ideal + ppo_chaos + ppo_coop_ideal + ppo_coop_chaos → fallback a ppo_final
+    MODELS_DIR = ROOT / "outputs" / "models"
+
+    CANDIDATE_MODELS = {
+        "Ideal":          MODELS_DIR / "ppo_ideal.zip",
+        "Caos (LATAM)":   MODELS_DIR / "ppo_chaos.zip",
+        "Coop-Ideal":     MODELS_DIR / "ppo_coop_ideal.zip",
+        "Coop-Caos":      MODELS_DIR / "ppo_coop_chaos.zip",
+    }
+    FALLBACK_MODEL = MODELS_DIR / "ppo_final.zip"
+
+    models_to_eval = {name: path for name, path in CANDIDATE_MODELS.items() if path.exists()}
+
+    if not models_to_eval:
+        if FALLBACK_MODEL.exists():
+            print(f" Modelos cooperativos/originales no encontrados. Usando fallback: {FALLBACK_MODEL.name}...")
+            models_to_eval["H-SARG"] = FALLBACK_MODEL
+        else:
+            print(" Error: No se encontró ningún modelo en outputs/models/. Ejecute train.py primero.")
+            sys.exit(1)
     else:
-        print(f"❌ Error: No se encontró ningún modelo en outputs/models/. Ejecute train.py primero.")
-        sys.exit(1)
+        print(f" Modelos detectados ({len(models_to_eval)}): {list(models_to_eval.keys())}")
         
+
     all_results = {}
     
     for name, path in models_to_eval.items():
@@ -470,9 +478,9 @@ def main() -> None:
         print(f"  EVALUANDO MODELO: {name.upper()}")
         print(f"=======================================================")
         
-        print(f"📦 Cargando modelo SARG-RL: {path.name}...")
+        print(f" Cargando modelo SARG-RL: {path.name}...")
         model = PPO.load(str(path), device="cpu")
-        print("✅ Modelo cargado correctamente.")
+        print(" Modelo cargado correctamente.")
         
         results = []
         # 1. Evaluar en Barcelona

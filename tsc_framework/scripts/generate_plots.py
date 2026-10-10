@@ -45,31 +45,37 @@ GRIDLOCK_THRESHOLD = 2000.0
 
 # Paleta coherente por agente
 PALETTE = {
-    "ppo_chaos":   "#27ae60",   # Verde oscuro — H-SARG Caótico
-    "ppo_ideal":   "#2980b9",   # Azul — H-SARG Ideal
-    "Fixed":       "#7f8c8d",   # Gris — Fixed Time
-    "MaxPressure": "#e67e22",   # Naranja — MaxPressure
-    "CoLight":     "#c0392b",   # Rojo oscuro — CoLight
+    "ppo_chaos":       "#27ae60",   # Verde oscuro
+    "ppo_ideal":       "#2980b9",   # Azul
+    "ppo_coop_ideal":  "#8e44ad",   # Violeta
+    "ppo_coop_chaos":  "#16a085",   # Teal
+    "Fixed":           "#7f8c8d",   # Gris
+    "MaxPressure":     "#e67e22",   # Naranja
+    "CoLight":         "#c0392b",   # Rojo oscuro
 }
 
 LABELS = {
-    "ppo_chaos":   "H-SARG Caótico",
-    "ppo_ideal":   "H-SARG Ideal",
-    "Fixed":       "Fixed Time",
-    "MaxPressure": "MaxPressure",
-    "CoLight":     "CoLight",
+    "ppo_chaos":       "H-SARG Caótico",
+    "ppo_ideal":       "H-SARG Ideal",
+    "ppo_coop_ideal":  "H-SARG Coop-Ideal",
+    "ppo_coop_chaos":  "H-SARG Coop-Caos",
+    "Fixed":           "Fixed Time",
+    "MaxPressure":     "MaxPressure",
+    "CoLight":         "CoLight",
 }
 
 MARKERS = {
-    "ppo_chaos":   "o",
-    "ppo_ideal":   "s",
-    "Fixed":       "D",
-    "MaxPressure": "^",
-    "CoLight":     "X",
+    "ppo_chaos":       "o",
+    "ppo_ideal":       "s",
+    "ppo_coop_ideal":  "P",
+    "ppo_coop_chaos":  "*",
+    "Fixed":           "D",
+    "MaxPressure":     "^",
+    "CoLight":         "X",
 }
 
 CHAOS_LABELS = {0.0: "0%", 0.15: "15%", 0.30: "30%", 0.50: "50%"}
-AGENT_ORDER = ["ppo_ideal", "ppo_chaos", "MaxPressure", "Fixed", "CoLight"]
+AGENT_ORDER = ["ppo_ideal", "ppo_chaos", "ppo_coop_ideal", "ppo_coop_chaos", "MaxPressure", "Fixed", "CoLight"]
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -127,7 +133,7 @@ def plot_degradation_median(df: pd.DataFrame, output_dir: Path):
     plt.tight_layout()
     out = output_dir / "degradation_curves_median.png"
     plt.savefig(out, dpi=300, bbox_inches='tight')
-    print(f"  ✅ [Fig 1] Curvas de degradación (mediana+IQR): {out.name}")
+    print(f"  OK [Fig 1] Curvas de degradación (mediana+IQR): {out.name}")
     plt.close()
 
 
@@ -212,7 +218,7 @@ def plot_boxplots_panel(df: pd.DataFrame, output_dir: Path):
     plt.tight_layout()
     out = output_dir / "stress_boxplot_all_chaos.png"
     plt.savefig(out, dpi=300, bbox_inches='tight')
-    print(f"  ✅ [Fig 2] Boxplots panel 2×2 (todos los niveles): {out.name}")
+    print(f"  OK [Fig 2] Boxplots panel 2×2 (todos los niveles): {out.name}")
     plt.close()
 
 
@@ -275,7 +281,7 @@ def plot_collapse_rate_heatmap(df: pd.DataFrame, output_dir: Path):
         pad=12, fontweight='bold', fontsize=13
     )
 
-    # Añadir símbolo ★ en la celda más crítica (mayor CVaR diferencia entre modelos RL)
+    # Añadir símbolo  en la celda más crítica (mayor CVaR diferencia entre modelos RL)
     # Resaltar: ppo_ideal @ 15% (única celda con ventaja documental clara)
     if 0.15 in chaos_levels and "ppo_ideal" in agents_present:
         col_idx = list(chaos_levels).index(0.15)
@@ -288,7 +294,7 @@ def plot_collapse_rate_heatmap(df: pd.DataFrame, output_dir: Path):
     plt.tight_layout()
     out = output_dir / "collapse_rate_heatmap.png"
     plt.savefig(out, dpi=300, bbox_inches='tight')
-    print(f"  ✅ [Fig 3] Heatmap tasa de colapso: {out.name}")
+    print(f"  OK [Fig 3] Heatmap tasa de colapso: {out.name}")
     plt.close()
 
 
@@ -353,7 +359,7 @@ def plot_cvar_comparison(df: pd.DataFrame, output_dir: Path):
     plt.tight_layout()
     out = output_dir / "cvar_comparison.png"
     plt.savefig(out, dpi=300, bbox_inches='tight')
-    print(f"  ✅ [Fig 4] Comparación CVaR95 barras agrupadas: {out.name}")
+    print(f"  OK [Fig 4] Comparación CVaR95 barras agrupadas: {out.name}")
     plt.close()
 
 
@@ -435,7 +441,141 @@ def plot_equity_tradeoff(df: pd.DataFrame, output_dir: Path):
     plt.tight_layout()
     out = output_dir / "equity_vs_efficiency_tradeoff.png"
     plt.savefig(out, dpi=300, bbox_inches='tight')
-    print(f"  ✅ [Fig 5] Trade-off eficiencia vs equidad (medianas): {out.name}")
+    print(f"  OK [Fig 5] Trade-off eficiencia vs equidad (medianas): {out.name}")
+    plt.close()
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Figura 6: Curva CVaR_α vs α — Trade-off Riesgo vs Rendimiento
+# ─────────────────────────────────────────────────────────────────────────────
+def plot_cvar_alpha_curve(df: pd.DataFrame, output_dir: Path):
+    """
+    Curva CVaR_α vs α ∈ [0.50, 1.00] para los 4 modelos RL + CoLight.
+    Muestra el trade-off riesgo-rendimiento: un agente robusto tiene una curva
+    que sube lentamente incluso al acercarse a α=1.0.
+    Chaos level 0.30 (mayor diferencia observable entre modelos).
+    """
+    agents_focus = [a for a in ["ppo_ideal", "ppo_chaos", "ppo_coop_ideal", "ppo_coop_chaos", "CoLight"] 
+                    if a in df["agent"].unique()]
+    chaos_for_curve = 0.30  # Nivel donde las diferencias son más pronunciadas
+    alphas = np.linspace(0.50, 0.99, 40)
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6), sharey=False)
+    chaos_to_plot = [0.0, 0.30]
+
+    for ax_idx, cl in enumerate(chaos_to_plot):
+        ax = axes[ax_idx]
+        for agent in agents_focus:
+            sub = df[(df["agent"] == agent) & (df["chaos_level"] == cl)]["delay_mean"].dropna().values
+            if len(sub) < 5:
+                continue
+
+            cvar_vals = []
+            for alpha in alphas:
+                threshold = np.quantile(sub, alpha)
+                tail = sub[sub >= threshold]
+                cvar_vals.append(float(tail.mean()) if len(tail) > 0 else float(sub.max()))
+
+            color  = PALETTE.get(agent, "#000")
+            label  = LABELS.get(agent, agent)
+            marker = MARKERS.get(agent, "o")
+            ax.plot(alphas * 100, cvar_vals, color=color, linewidth=2.2, label=label,
+                    marker=marker, markevery=8, markersize=6)
+
+        ax.axvline(x=95, color='gray', linestyle=':', linewidth=1.5, alpha=0.7)
+        ax.text(95.5, ax.get_ylim()[1] * 0.98 if ax.get_ylim()[1] > 0 else 1000,
+                'CVaR₉₅', fontsize=9, color='gray', va='top')
+        ax.set_title(f"Caos {cl*100:.0f}%", fontweight='bold', fontsize=13)
+        ax.set_xlabel("Nivel de Confianza α (%)", fontweight='bold')
+        ax.set_ylabel("CVaRα (s) — Peor Delay Esperado", fontweight='bold')
+        ax.grid(True, linestyle='--', alpha=0.4)
+        ax.legend(title="Controlador", frameon=True, facecolor='white', fontsize=10)
+
+    fig.suptitle(
+        "Curva CVaRα vs α — Trade-off Riesgo vs Rendimiento\n"
+        "(Pendiente baja = agente robusto; pendiente alta = fraccaso en cola)",
+        fontweight='bold', fontsize=14
+    )
+    plt.tight_layout()
+    out = output_dir / "cvar_alpha_curve.png"
+    plt.savefig(out, dpi=300, bbox_inches='tight')
+    print(f"  OK [Fig 6] Curva CVaR-alpha (trade-off riesgo): {out.name}")
+    plt.close()
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Figura 7: Gini vs Delay — Scatter Condicional (Valida H3/RQ4)
+# ─────────────────────────────────────────────────────────────────────────────
+def plot_gini_vs_delay_scatter(df: pd.DataFrame, output_dir: Path):
+    """
+    Scatter Gini vs Delay para todos los episodios (todos los agentes y niveles de caos).
+    Línea vertical roja = umbral de gridlock (2000s).
+    Demuestra empíricamente que el Gini colapsa durante episodios de gridlock (H3/RQ4).
+    Incluye anotación con mu +/- std para régimen nominal vs gridlock.
+    """
+    fig, ax = plt.subplots(figsize=(12, 7))
+
+    agents_rl = [a for a in ["ppo_ideal", "ppo_chaos", "ppo_coop_ideal", "ppo_coop_chaos"] 
+                 if a in df["agent"].unique()]
+
+    for agent in agents_rl:
+        sub = df[df["agent"] == agent][["delay_mean", "gini_mean"]].dropna()
+        if len(sub) == 0:
+            continue
+        color = PALETTE.get(agent, "#000")
+        label = LABELS.get(agent, agent)
+        marker = MARKERS.get(agent, "o")
+        # Separar nominal vs gridlock visualmente
+        nom = sub[sub["delay_mean"] < GRIDLOCK_THRESHOLD]
+        grid = sub[sub["delay_mean"] >= GRIDLOCK_THRESHOLD]
+        ax.scatter(nom["delay_mean"], nom["gini_mean"], color=color, marker=marker,
+                   alpha=0.45, s=28, label=label)
+        ax.scatter(grid["delay_mean"], grid["gini_mean"], color=color, marker="X",
+                   alpha=0.85, s=80, edgecolors='black', linewidth=0.6)
+
+    # Línea de umbral de gridlock
+    ax.axvline(x=GRIDLOCK_THRESHOLD, color='#c0392b', linestyle='--', linewidth=2.0,
+               label=f'Umbral Gridlock ({GRIDLOCK_THRESHOLD:.0f}s)')
+
+    # Calcular y anotar estadísticos (todos los agentes RL juntos)
+    rl_df = df[df["agent"].isin(agents_rl)][["delay_mean", "gini_mean"]].dropna()
+    nominal_gini  = rl_df[rl_df["delay_mean"] < GRIDLOCK_THRESHOLD]["gini_mean"]
+    gridlock_gini = rl_df[rl_df["delay_mean"] >= GRIDLOCK_THRESHOLD]["gini_mean"]
+
+    if len(nominal_gini) > 0:
+        ax.axhspan(nominal_gini.mean() - nominal_gini.std(),
+                   nominal_gini.mean() + nominal_gini.std(),
+                   xmin=0, xmax=0.15, color='#2980b9', alpha=0.12)
+        ax.text(GRIDLOCK_THRESHOLD * 0.05, nominal_gini.mean(),
+                f"Nominal: μ={nominal_gini.mean():.2f}±{nominal_gini.std():.2f}\n(n={len(nominal_gini)})",
+                fontsize=9.5, color='#2980b9', fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='#eaf4fb', edgecolor='#2980b9', alpha=0.85))
+
+    if len(gridlock_gini) > 0:
+        ax.text(GRIDLOCK_THRESHOLD * 1.05, gridlock_gini.mean(),
+                f"Gridlock: μ={gridlock_gini.mean():.2f}±{gridlock_gini.std():.2f}\n(n={len(gridlock_gini)})",
+                fontsize=9.5, color='#c0392b', fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='#fdecea', edgecolor='#c0392b', alpha=0.85))
+
+    ax.set_xscale('symlog', linthresh=GRIDLOCK_THRESHOLD)
+    ax.set_xlabel("Retraso Promedio por Episodio (s) [escala sim-log]", fontweight='bold')
+    ax.set_ylabel("Coeficiente de Gini (Equidad Distributiva)", fontweight='bold')
+    ax.set_title(
+        "Gini vs Delay — Colapso de Equidad bajo Gridlock\n"
+        "(Valida H3/RQ4: el Gini se invierte durante episodios catastróficos)",
+        pad=12, fontweight='bold'
+    )
+    ax.legend(title="Controlador / Umbral", frameon=True, facecolor='white',
+              edgecolor='#cccccc', fontsize=9, loc='lower left')
+    ax.grid(True, linestyle='--', alpha=0.35)
+    ax.text(0.01, 0.01,
+            "X grande = episodio de gridlock | Punto pequeño = régimen nominal",
+            transform=ax.transAxes, fontsize=8.5, color='#666', style='italic')
+
+    plt.tight_layout()
+    out = output_dir / "gini_vs_delay_scatter.png"
+    plt.savefig(out, dpi=300, bbox_inches='tight')
+    print(f"  OK [Fig 7] Scatter Gini vs Delay (colapso equidad H3): {out.name}")
     plt.close()
 
 
@@ -443,7 +583,7 @@ def plot_equity_tradeoff(df: pd.DataFrame, output_dir: Path):
 # Main
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
-    parser = argparse.ArgumentParser(description="Generador de Figuras Científicas Doctorales v2")
+    parser = argparse.ArgumentParser(description="Generador de Figuras Científicas Doctorales v3")
     parser.add_argument("--input-dir", type=str, default="tsc_framework/outputs/results",
                         help="Directorio con metrics_detailed.csv")
     parser.add_argument("--output-dir", type=str, default="tsc_framework/outputs/figures",
@@ -456,22 +596,26 @@ def main():
 
     detailed_file = input_dir / "metrics_detailed.csv"
     if not detailed_file.exists():
-        print(f"❌ Archivo no encontrado: {detailed_file}")
+        print(f"ERROR: Archivo no encontrado: {detailed_file}")
         sys.exit(1)
 
     df = pd.read_csv(detailed_file)
-    print(f"\n📊 Datos cargados: {len(df)} episodios, "
+    print(f"\nDatos cargados: {len(df)} episodios, "
           f"{df['agent'].nunique()} agentes, "
           f"{df['chaos_level'].nunique()} niveles de caos")
-    print(f"📁 Generando figuras en: {output_dir}\n")
+    print(f"Generando figuras en: {output_dir}\n")
 
-    plot_degradation_median(df, output_dir)
-    plot_boxplots_panel(df, output_dir)
-    plot_collapse_rate_heatmap(df, output_dir)
-    plot_cvar_comparison(df, output_dir)
-    plot_equity_tradeoff(df, output_dir)
+    # Figuras originales
+    plot_degradation_median(df, output_dir)        # Fig 1
+    plot_boxplots_panel(df, output_dir)            # Fig 2
+    plot_collapse_rate_heatmap(df, output_dir)     # Fig 3
+    plot_cvar_comparison(df, output_dir)           # Fig 4
+    plot_equity_tradeoff(df, output_dir)           # Fig 5
+    # Figuras nuevas (recomendadas por colega doctoral)
+    plot_cvar_alpha_curve(df, output_dir)          # Fig 6 - CVaR_alpha vs alpha
+    plot_gini_vs_delay_scatter(df, output_dir)     # Fig 7 - Gini scatter (H3/RQ4)
 
-    print(f"\n🎉 ¡5 figuras doctorales generadas con éxito en: {output_dir}")
+    print(f"\n7 figuras doctorales generadas en: {output_dir}")
 
 
 if __name__ == "__main__":

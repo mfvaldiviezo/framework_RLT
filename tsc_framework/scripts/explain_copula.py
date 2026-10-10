@@ -83,10 +83,7 @@ def get_traffic_data() -> pd.DataFrame:
 
 def compute_kendall_tau(df: pd.DataFrame) -> pd.DataFrame:
     """Calcula la matriz de Kendall's Tau para dependencias no lineales."""
-    tau_matrix, _ = stats.kendalltau(df)
-    if len(tau_matrix.shape) == 0:  # Si falla, usar pandas correlation
-        return df.corr(method="kendall")
-    return pd.DataFrame(tau_matrix, index=df.columns, columns=df.columns)
+    return df.corr(method="kendall")
 
 def estimate_tail_dependence(u1: np.ndarray, u2: np.ndarray, u_cutoff: float = 0.90, l_cutoff: float = 0.10) -> Tuple[float, float]:
     """
@@ -178,7 +175,7 @@ def generate_xai_report(df: pd.DataFrame, tau_df: pd.DataFrame, output_path: Pat
         
     # 3.3 Construir Markdown
     md_content = []
-    md_content.append("# 📈 REPORTE DE EXPLICABILIDAD ESTADÍSTICA (XAI)")
+    md_content.append("#  REPORTE DE EXPLICABILIDAD ESTADÍSTICA (XAI)")
     md_content.append("## Tesis Doctoral: Control Semafórico Inteligente con RL Sensible al Riesgo")
     md_content.append("**Dimensión de Auditoría:** Explicabilidad de la Cópula e Interpretabilidad de Escenarios (RQ1)\n")
     
@@ -204,7 +201,7 @@ def generate_xai_report(df: pd.DataFrame, tau_df: pd.DataFrame, output_path: Pat
     md_content.append("A continuación, se detalla la modelación de las relaciones críticas mediante cópulas paramétricas deducidas de los datos empíricos de Quito:\n")
     
     for pair in pairs_report:
-        md_content.append(f"### 🔗 {pair['var1']} ↔ {pair['var2']}")
+        md_content.append(f"###  {pair['var1']} ↔ {pair['var2']}")
         md_content.append(f"* **Descripción:** {pair['desc']}")
         md_content.append(f"* **Kendall's Tau ($\tau$):** `{pair['tau']:.4f}`")
         md_content.append(f"* **Coeficiente de Cola Superior ($\lambda_U$):** `{pair['lambda_U']:.4f}` (Sensibilidad a picos conjuntos)")
@@ -221,7 +218,7 @@ def generate_xai_report(df: pd.DataFrame, tau_df: pd.DataFrame, output_path: Pat
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(md_content))
         
-    logger.info(f"📄 Reporte de Explicabilidad estadística guardado en: {output_path}")
+    logger.info(f" Reporte de Explicabilidad estadística guardado en: {output_path}")
 
 def main():
     df = get_traffic_data()
@@ -231,7 +228,7 @@ def main():
     generate_xai_report(df, tau_df, report_path)
     
     print("=" * 65)
-    print("  ✅ PIPELINE DE EXPLICABILIDAD ESTADÍSTICA (XAI) COMPLETADO")
+    print("   PIPELINE DE EXPLICABILIDAD ESTADÍSTICA (XAI) COMPLETADO")
     print(f"     Reporte generado con éxito en: {report_path.name}")
     print("=" * 65)
 

@@ -513,24 +513,24 @@ def main() -> None:
         try:
             from src.rl_agent.sarg_policy import CoopSARGExtractor
             features_extractor = CoopSARGExtractor
-            logger.info("⚡ Utilizando el nuevo extractor Coop-SARG (Cooperative Self-Attention Gated Risk).")
+            logger.info(" Utilizando el nuevo extractor Coop-SARG (Cooperative Self-Attention Gated Risk).")
         except ImportError:
             try:
                 from tsc_framework.src.rl_agent.sarg_policy import CoopSARGExtractor
                 features_extractor = CoopSARGExtractor
-                logger.info("⚡ Utilizando el nuevo extractor Coop-SARG (Cooperative Self-Attention Gated Risk).")
+                logger.info(" Utilizando el nuevo extractor Coop-SARG (Cooperative Self-Attention Gated Risk).")
             except ImportError as e:
                 logger.warning("No se pudo cargar CoopSARGExtractor. Error: %s", e)
     else:
         try:
             from src.rl_agent.sarg_policy import HSARGExtractor
             features_extractor = HSARGExtractor
-            logger.info("🧠 Utilizando el extractor H-SARG nominal.")
+            logger.info(" Utilizando el extractor H-SARG nominal.")
         except ImportError:
             try:
                 from tsc_framework.src.rl_agent.sarg_policy import HSARGExtractor
                 features_extractor = HSARGExtractor
-                logger.info("🧠 Utilizando el extractor H-SARG nominal.")
+                logger.info(" Utilizando el extractor H-SARG nominal.")
             except ImportError as e:
                 logger.warning("No se pudo cargar HSARGExtractor. Error: %s", e)
 
@@ -618,7 +618,7 @@ def main() -> None:
     # ── 9. Guardar modelo final ───────────────────────────────────────────────
     final_path = MODELS_DIR / "ppo_final"
     model.save(str(final_path))
-    logger.info("✅ Modelo final guardado en: %s.zip", final_path)
+    logger.info(" Modelo final guardado en: %s.zip", final_path)
 
     # ── 10. Cierre de entornos ────────────────────────────────────────────────
     vec_env.close()

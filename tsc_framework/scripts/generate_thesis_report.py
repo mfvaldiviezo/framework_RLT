@@ -103,7 +103,7 @@ def parse_statistical_analysis(stats_csv_path):
                 "magnitude": str(row["effect_magnitude"]),
             }
     except Exception as e:
-        print(f"  ⚠️ Error parsing stats_mann_whitney.csv dynamically: {e}. Using defaults.")
+        print(f"  [WARNING] Error parsing stats_mann_whitney.csv dynamically: {e}. Using defaults.")
     return defaults
 
 
@@ -126,7 +126,7 @@ def parse_kruskal_wallis(kw_csv_path):
                 "stars": str(row["stars"]),
             }
     except Exception as e:
-        print(f"  ⚠️ Error parsing stats_kruskal_wallis.csv dynamically: {e}. Using defaults.")
+        print(f"  [WARNING] Error parsing stats_kruskal_wallis.csv dynamically: {e}. Using defaults.")
     return defaults
 
 
@@ -202,7 +202,7 @@ def parse_transfer_report(transfer_path):
                 defaults["qto"]["reward_chaos"] = clean_num(parts[5])
                     
     except Exception as e:
-        print(f"  ⚠️ Error parsing transfer_report.md dynamically: {e}. Using defaults.")
+        print(f"  [WARNING] Error parsing transfer_report.md dynamically: {e}. Using defaults.")
     return defaults
 
 
@@ -215,13 +215,13 @@ def main():
     report_output_path = ROOT / "outputs" / "results" / "INFORME_FINAL_ROBUSTEZ.md"
 
     print("=" * 70)
-    print("🎓 CONSOLIDADOR DE REPORTE DOCTORAL FINAL (v3 — POST-REVISIÓN)")
+    print(" CONSOLIDADOR DE REPORTE DOCTORAL FINAL (v3 — POST-REVISIÓN)")
     print("   Estadística: Mediana | IQR | Colapso % | CVaR95 | Gini")
     print("=" * 70)
 
     # ─── 1. Cargar datos ───────────────────────────────────────────────────
     if not detailed_path.exists():
-        print(f"❌ Error: {detailed_path} no encontrado. Ejecute run_evaluation.py primero.")
+        print(f"[ERROR] Error: {detailed_path} no encontrado. Ejecute run_evaluation.py primero.")
         sys.exit(1)
 
     df = pd.read_csv(detailed_path)
@@ -254,7 +254,7 @@ def main():
         "| :--- | :---: | :---: | :---: | :---: | :---: | :---: |\n"
     )
     for r in main_table_rows:
-        collapse_flag = " ⚠️" if r["collapse_pct"] > 0 else ""
+        collapse_flag = " [WARNING]" if r["collapse_pct"] > 0 else ""
         main_table_md += (
             f"| **{LABELS.get(r['agent'], r['agent'])}** | {r['chaos_level']*100:.0f}% | "
             f"{r['delay_median']:.1f} | {r['delay_iqr']:.1f} | "
@@ -347,12 +347,12 @@ def main():
 
     stats_section = ""
     if stats_md_path.exists():
-        print("  ✅ Sección de análisis estadístico encontrada.")
+        print("  [OK] Sección de análisis estadístico encontrada.")
         with open(stats_md_path, "r", encoding="utf-8") as f:
             stats_section = f.read()
         stats_section = stats_section.replace("## [ANALISIS] ", "## Capítulo 2.5: ")
     else:
-        print("  ⚠️ Análisis estadístico no encontrado. Ejecute statistical_analysis.py primero.")
+        print("  [WARNING] Análisis estadístico no encontrado. Ejecute statistical_analysis.py primero.")
 
     # ─── 7. Ensamblar Reporte ──────────────────────────────────────────────
     transfer_table_md = f"""| Métrica Científica | Barcelona (Ideal) | Barcelona (Caótico) | Quito (Ideal) | Quito (Caótico) |
@@ -363,7 +363,7 @@ def main():
 | **Recompensa Total** | {transfer_data["bcn"]["reward_ideal"]:,.0f} | {transfer_data["bcn"]["reward_chaos"]:,.0f} | {transfer_data["qto"]["reward_ideal"]:,.0f} | {transfer_data["qto"]["reward_chaos"]:,.0f} |"""
 
     report_md = f"""# REPORTE DOCTORAL DEFINITIVO: RESILIENCIA, TRANSICIÓN AL CAOS Y ROBUSTEZ ADAPTATIVA
-**Candidato:** Marcelo  
+**Autor:** Marcelo Valdiviezo-Condolo  
 **Modelo Principal:** H-SARG (Hybrid Self-Attention Gated Risk)  
 **Fecha:** {pd.Timestamp.now().strftime('%Y-%m-%d')}  
 **Entorno de Simulación:** SUMO 1.20+ (Sin Teleports, Colisiones Físicas Reales)  
@@ -539,7 +539,7 @@ La presencia de episodios de colapso en H-SARG Caótico bajo niveles altos de pe
     with open(report_output_path, "w", encoding="utf-8") as f:
         f.write(report_md)
 
-    print(f"\n  🎉 Reporte Doctoral definitivo guardado en:\n     {report_output_path}")
+    print(f"\n  [SUCCESS] Reporte Doctoral definitivo guardado en:\n     {report_output_path}")
     print("=" * 70 + "\n")
 
 

@@ -113,7 +113,7 @@ def evaluate_agent_on_chaos(
     max_steps_limit: int
 ) -> List[Dict[str, Any]]:
     """Ejecuta N episodios y recolecta métricas detalladas por paso/episodio."""
-    print(f"\n🚀 Evaluando: {agent_label} | Caos: {chaos_level:.2f} | {n_episodes} episodios...")
+    print(f"\n Evaluando: {agent_label} | Caos: {chaos_level:.2f} | {n_episodes} episodios...")
     
     episode_results = []
     
@@ -211,11 +211,11 @@ def main():
     route_file = ROOT / "sumo_configs" / "routes" / "hangzhou" / "hangzhou_dense.rou.xml"
     
     if not net_file.exists():
-        print(f"❌ Red no encontrada en {net_file}")
+        print(f" Red no encontrada en {net_file}")
         sys.exit(1)
         
     print("=" * 70)
-    print("🚦 EXPERIMENTO A: EVALUACIÓN DE ROBUSTEZ Y DEGRADACIÓN POR CAOS")
+    print(" EXPERIMENTO A: EVALUACIÓN DE ROBUSTEZ Y DEGRADACIÓN POR CAOS")
     print("=" * 70)
     print(f"Red: {net_file.name}")
     print(f"Rutas: {route_file.name}")
@@ -255,12 +255,12 @@ def main():
     for model_name in args.models:
         model_path = ROOT / "outputs" / "models" / f"{model_name}.zip"
         if model_path.exists():
-            print(f"📦 Cargando Modelo H-SARG: {model_name}...")
+            print(f" Cargando Modelo H-SARG: {model_name}...")
             model = PPO.load(str(model_path), device="cpu")
             agents[model_name] = model
-            print(f"   ✅ Modelo {model_name} cargado con éxito.")
+            print(f"    Modelo {model_name} cargado con éxito.")
         else:
-            print(f"⚠️ Warning: Modelo no encontrado en {model_path}")
+            print(f"️ Warning: Modelo no encontrado en {model_path}")
             
     # Baselines
     # Obtenemos un entorno dummy temporal para instanciar baselines con el action space correcto
@@ -271,13 +271,13 @@ def main():
     for baseline in args.baselines:
         if baseline == "fixed":
             agents["Fixed"] = FixedAgent(action_space, green_steps=5)
-            print("🎲 Baseline Inicializado: FIXED")
+            print(" Baseline Inicializado: FIXED")
         elif baseline == "maxpressure":
             agents["MaxPressure"] = MaxPressureAgent()
-            print("🎲 Baseline Inicializado: MAXPRESSURE")
+            print(" Baseline Inicializado: MAXPRESSURE")
         elif baseline == "colight":
             agents["CoLight"] = CoLightAgent()
-            print("🎲 Baseline Inicializado: COLIGHT (SOTA single-agent)")
+            print(" Baseline Inicializado: COLIGHT (SOTA single-agent)")
             
     detailed_results = []
     
@@ -322,7 +322,7 @@ def main():
         writer = csv.DictWriter(f, fieldnames=keys)
         writer.writeheader()
         writer.writerows(detailed_results)
-    print(f"\n📊 Resultados detallados guardados en: {detailed_file}")
+    print(f"\n Resultados detallados guardados en: {detailed_file}")
     
     # Escribir Resumen (Agregado por Agente y Nivel de Caos)
     summary_data = []
@@ -351,11 +351,11 @@ def main():
     ]
     
     df_summary.to_csv(summary_file, index=False)
-    print(f"📊 Tabla comparativa de resumen guardada en: {summary_file}")
+    print(f" Tabla comparativa de resumen guardada en: {summary_file}")
     
     # Imprimir un reporte elegante por consola
     print("\n" + "=" * 70)
-    print("📈 INFORME EJECUTIVO DE ROBUSTEZ Y DEGRADACIÓN")
+    print(" INFORME EJECUTIVO DE ROBUSTEZ Y DEGRADACIÓN")
     print("=" * 70)
     print(df_summary.to_string(index=False, columns=["agent", "chaos_level", "delay_mean", "queue_mean", "gini_mean", "cvar_95_mean"]))
     print("=" * 70 + "\n")

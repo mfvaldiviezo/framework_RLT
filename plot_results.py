@@ -64,7 +64,7 @@ def plot_resilience_bar_chart(data, output_dir):
     plt.tight_layout()
     out_path = output_dir / "resilience_throughput.png"
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
-    print(f"✅ Gráfico guardado: {out_path}")
+    print(f"[OK] Gráfico guardado: {out_path}")
     plt.close()
 
 def plot_efficiency_vs_equity(data, output_dir):
@@ -122,7 +122,7 @@ def plot_efficiency_vs_equity(data, output_dir):
     plt.tight_layout()
     out_path = output_dir / "efficiency_vs_equity.png"
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
-    print(f"✅ Gráfico guardado: {out_path}")
+    print(f"[OK] Gráfico guardado: {out_path}")
     plt.close()
 
 if __name__ == "__main__":
@@ -130,7 +130,7 @@ if __name__ == "__main__":
     data = gather_data()
     
     if not data:
-        print("❌ No se encontraron datos válidos. Asegúrate de haber ejecutado evaluate_marl.py primero.")
+        print("[ERROR] No se encontraron datos válidos. Asegúrate de haber ejecutado evaluate_marl.py primero.")
         sys.exit(1)
         
     output_dir = Path("benchmark_reports/plots")
@@ -139,4 +139,4 @@ if __name__ == "__main__":
     plot_resilience_bar_chart(data, output_dir)
     plot_efficiency_vs_equity(data, output_dir)
     
-    print("\n🎉 ¡Gráficas de nivel publicación generadas con éxito!")
+    print("\n[SUCCESS] ¡Gráficas de nivel publicación generadas con éxito!")

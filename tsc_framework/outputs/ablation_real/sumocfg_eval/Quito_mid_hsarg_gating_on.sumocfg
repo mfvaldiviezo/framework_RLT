@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+        <net-file value="C:/Proyecto_Tesis_Final_V1/traffic_project/tsc_framework/sumo_configs/networks/quito.net.xml"/>
+        <route-files value="C:/Proyecto_Tesis_Final_V1/traffic_project/tsc_framework/outputs/ablation_real/routes/quito/mid.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+    </time>
+    <processing>
+        <time-to-teleport value="300"/>
+        <waiting-time-memory value="10000"/>
+    </processing>
+    <report>
+        <no-warnings value="true"/>
+    </report>
+</configuration>

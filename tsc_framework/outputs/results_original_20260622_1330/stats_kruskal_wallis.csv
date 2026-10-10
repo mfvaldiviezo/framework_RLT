@@ -1,0 +1,5 @@
+chaos_level,test,H_statistic,p_value,significant,stars,n_groups
+0.0,Kruskal-Wallis,63.3536,0.0,True,***,7
+0.15,Kruskal-Wallis,68.2444,0.0,True,***,7
+0.3,Kruskal-Wallis,70.4181,0.0,True,***,7
+0.5,Kruskal-Wallis,103.8857,0.0,True,***,7

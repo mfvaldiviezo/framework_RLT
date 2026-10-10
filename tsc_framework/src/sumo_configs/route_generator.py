@@ -121,6 +121,15 @@ def load_stress_scenarios(
         )
 
     df = pd.read_csv(path, nrows=n_scenarios)
+    
+    # Compatibilidad con los nombres de variables exportados por vine_generator.py
+    if "demand" not in df.columns and "demand_mean" in df.columns:
+        df["demand"] = df["demand_mean"]
+    if "accel_magnitude" not in df.columns and "friction_mean" in df.columns:
+        df["accel_magnitude"] = df["friction_mean"]
+    if "jerk" not in df.columns and "incident_prob_mean" in df.columns:
+        df["jerk"] = df["incident_prob_mean"]
+        
     required = ["demand", "accel_magnitude", "jerk"]
     missing = [c for c in required if c not in df.columns]
     if missing:
@@ -131,7 +140,7 @@ def load_stress_scenarios(
         df[col] = pd.to_numeric(df[col], errors="coerce")
 
     df = df.dropna(subset=required).reset_index(drop=True)
-    logger.info(f"✓ Escenarios cargados: {len(df)} filas desde {path.name}")
+    logger.info(f" Escenarios cargados: {len(df)} filas desde {path.name}")
     return df
 
 
@@ -380,8 +389,6 @@ def generate_route_xml(
         "length": "5.00",
         "width":  "2.00",
         **krauss.to_attribs(),
-        "departSpeed": "0",
-        "departLane":  "best",
     }
     ET.SubElement(root, "vType", attrib=vtype_attribs)
 
@@ -406,9 +413,11 @@ def generate_route_xml(
         if start_time == end_time:
             # Vehículo individual → <vehicle> con <route> inline
             veh_elem = ET.SubElement(root, "vehicle", attrib={
-                "id":     veh_id,
-                "type":   "latam_car",
-                "depart": f"{start_time:.1f}",
+                "id":          veh_id,
+                "type":        "latam_car",
+                "depart":      f"{start_time:.1f}",
+                "departSpeed": "0",
+                "departLane":  "best",
             })
             ET.SubElement(veh_elem, "route", attrib={"edges": edges_str})
         else:
@@ -416,12 +425,14 @@ def generate_route_xml(
             # period = segundos entre salidas de vehículos
             period = max(interval, 1.0)
             ET.SubElement(root, "flow", attrib={
-                "id":     veh_id,
-                "type":   "latam_car",
-                "begin":  f"{start_time:.1f}",
-                "end":    f"{end_time:.1f}",
-                "period": f"{period:.1f}",
-                "route":  edges_str,   # edges directamente en <flow>
+                "id":          veh_id,
+                "type":        "latam_car",
+                "begin":       f"{start_time:.1f}",
+                "end":         f"{end_time:.1f}",
+                "period":      f"{period:.1f}",
+                "route":       edges_str,   # edges directamente en <flow>
+                "departSpeed": "0",
+                "departLane":  "best",
             })
 
         veh_counter += 1

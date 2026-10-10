@@ -1,0 +1,32 @@
+\begin{table*}[t]
+\centering
+\caption{Ablation study of the MAD-Gating mechanism across two architectures (H-SARG, Coop-SARG) and two topologies (Quito=linear, Barcelona=grid). $\Delta = \text{Gini}_\text{OFF} - \text{Gini}_\text{ON}$. Positive $\Delta$ indicates that disabling gating worsens equity. ***$p<0.001$}
+\label{tab:mad_gating_ablation}
+\begin{tabular}{llcccccc}
+\toprule
+& & \textbf{Chaos} & \textbf{Gini}$_\text{ON}$ & \textbf{Gini}$_\text{OFF}$ & $\Delta$Gini & \textbf{Effect} $r$ & \textbf{Sig.}\\
+\midrule
+  \multirow{10}{*}{H-SARG} & Quito & low & 0.448 & 0.480 & +0.032 & 1.000 & *** \\
+   & Quito & mid & 0.439 & 0.493 & +0.053 & 1.000 & *** \\
+   & Quito & mid_high & 0.448 & 0.498 & +0.050 & 1.000 & *** \\
+   & Quito & high & 0.437 & 0.507 & +0.070 & 1.000 & *** \\
+   & Quito & extreme & 0.445 & 0.554 & +0.108 & 1.000 & *** \\
+   & Barcelona & low & 0.358 & 0.392 & +0.035 & 1.000 & *** \\
+   & Barcelona & mid & 0.356 & 0.389 & +0.033 & 1.000 & *** \\
+   & Barcelona & mid_high & 0.352 & 0.387 & +0.035 & 1.000 & *** \\
+   & Barcelona & high & 0.363 & 0.408 & +0.045 & 1.000 & *** \\
+   & Barcelona & extreme & 0.367 & 0.411 & +0.044 & 1.000 & *** \\
+\cmidrule{2-8}
+  \multirow{10}{*}{Coop-SARG} & Quito & low & 0.402 & 0.476 & +0.074 & 1.000 & *** \\
+   & Quito & mid & 0.398 & 0.527 & +0.129 & 1.000 & *** \\
+   & Quito & mid_high & 0.395 & 0.535 & +0.140 & 1.000 & *** \\
+   & Quito & high & 0.410 & 0.561 & +0.151 & 1.000 & *** \\
+   & Quito & extreme & 0.415 & 0.581 & +0.165 & 1.000 & *** \\
+   & Barcelona & low & 0.292 & 0.361 & +0.069 & 1.000 & *** \\
+   & Barcelona & mid & 0.279 & 0.363 & +0.084 & 1.000 & *** \\
+   & Barcelona & mid_high & 0.297 & 0.368 & +0.071 & 1.000 & *** \\
+   & Barcelona & high & 0.290 & 0.409 & +0.119 & 1.000 & *** \\
+   & Barcelona & extreme & 0.298 & 0.408 & +0.110 & 1.000 & *** \\
+\bottomrule
+\end{tabular}
+\end{table*}

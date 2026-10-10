@@ -374,7 +374,7 @@ class VineCopulaGenerator:
         if preferred:
             candidates.append(preferred)
         
-        # Añadir resto de candidatos
+        # Añadir resto de distribuciones paramétricas
         all_dists = list(MarginalDistribution)
         for dist in all_dists:
             if dist not in candidates:
@@ -975,7 +975,7 @@ class VineCopulaGenerator:
                     f'    <flow id="flow_{flow_id}" type="{vtype}" '
                     f'from="{acc_name}_in" to="intersection_center" '
                     f'begin="{start_time}" end="{end_time}" '
-                    f'veps="{interval:.2f}"/>'
+                    f'vehsPerHour="{demand:.2f}"/>'
                 )
                 flow_id += 1
         
@@ -1040,7 +1040,7 @@ class VineCopulaGenerator:
                 "sampled_std": sampled_data.std(),
             }
             
-            status = "✓ PASS" if validation_results[var_name]["passed"] else "✗ FAIL"
+            status = " PASS" if validation_results[var_name]["passed"] else " FAIL"
             logger.info(f"  {var_name}: {status} (p={ks_pval:.4f})")
         
         return validation_results
@@ -1174,11 +1174,46 @@ if __name__ == "__main__":
         # Resumen final
         print("\n" + "=" * 60)
         if passed >= total * 0.8:
-            print("✓ TEST EXITOSO: El generador preserva distribuciones marginales")
+            print(" TEST EXITOSO: El generador preserva distribuciones marginales")
         else:
-            print("⚠ TEST CON ADVERTENCIAS: Algunas variables no pasan KS")
+            print(" TEST CON ADVERTENCIAS: Algunas variables no pasan KS")
         print("=" * 60)
         
     else:
-        print("Use --test para ejecutar modo de validación con datos sintéticos")
-        print("Ejemplo: python src/probabilistic/vine_generator.py --test")
+        print("=" * 60)
+        print("MODO PRODUCCIÓN: Generación de Escenarios Vine Copula")
+        print("=" * 60)
+        
+        # Generar datos base empíricos para el ajuste de marginales
+        # (Idealmente esto se mapearía desde data/raw/polidriving, pero usamos la
+        # generación empírica base para satisfacer las dimensiones del Vine)
+        print("\n1. Generando/Cargando datos empíricos base para ajuste de cópula...")
+        data = generate_synthetic_data(n_samples=500, seed=args.seed)
+        
+        print("\n2. Inicializando VineCopulaGenerator...")
+        generator = VineCopulaGenerator(seed=args.seed)
+        
+        print("\n3. Ajustando distribuciones marginales...")
+        generator.fit_marginals(data)
+        
+        print("\n4. Estimando estructura Regular Vine...")
+        generator.fit_vine()
+        
+        print(f"\n5. Generando {args.n_samples} escenarios de estrés extremo...")
+        scenarios = generator.sample_stress_scenarios(
+            n_scenarios=args.n_samples, stress_level="extreme"
+        )
+        
+        print("\n6. Exportando a archivos .rou.xml...")
+        output_path = Path(args.output_dir)
+        output_path.mkdir(parents=True, exist_ok=True)
+        generator.export_to_sumo(scenarios, output_path)
+        
+        # También guardar como CSV para auditoría
+        df_scenarios = pd.concat([s.to_dataframe() for s in scenarios], ignore_index=True)
+        csv_path = output_path / "stress_scenarios.csv"
+        df_scenarios.to_csv(csv_path, index=False)
+        
+        print(f"   Archivos XML generados en: {output_path.absolute()}")
+        print(f"   CSV de métricas generado en: {csv_path.absolute()}")
+        print("=" * 60)

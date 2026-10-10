@@ -44,14 +44,24 @@ STATS_MD = OUTPUT_DIR / "statistical_analysis.md"
 GRIDLOCK_THRESHOLD = 2000.0   # s — umbral físico de gridlock
 ALPHA = 0.05                   # Nivel de significancia
 
-AGENT_ORDER = ["ppo_ideal", "ppo_chaos", "MaxPressure", "Fixed", "CoLight"]
+AGENT_ORDER = ["ppo_ideal", "ppo_chaos", "ppo_coop_ideal", "ppo_coop_chaos", "MaxPressure", "Fixed", "CoLight"]
 LABELS = {
-    "ppo_chaos":   "H-SARG Caótico",
-    "ppo_ideal":   "H-SARG Ideal",
-    "Fixed":       "Fixed Time",
-    "MaxPressure": "MaxPressure",
-    "CoLight":     "CoLight",
+    "ppo_chaos":       "H-SARG Caótico",
+    "ppo_ideal":       "H-SARG Ideal",
+    "ppo_coop_ideal":  "H-SARG Coop-Ideal",
+    "ppo_coop_chaos":  "H-SARG Coop-Caos",
+    "Fixed":           "Fixed Time",
+    "MaxPressure":     "MaxPressure",
+    "CoLight":         "CoLight",
 }
+
+# Pares de comparación para Wilcoxon / Mann-Whitney
+RL_PAIRS = [
+    ("ppo_chaos",      "ppo_ideal",      "H-SARG Caótico vs Ideal"),
+    ("ppo_coop_ideal", "ppo_ideal",      "Coop-Ideal vs Ideal"),
+    ("ppo_coop_chaos", "ppo_chaos",      "Coop-Caos vs Caótico"),
+    ("ppo_coop_chaos", "ppo_coop_ideal", "Coop-Caos vs Coop-Ideal"),
+]
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -154,48 +164,60 @@ def main():
     desc_df.to_csv(desc_file, index=False, float_format="%.4f")
     print(f"   OK Estadisticas descriptivas -> {desc_file.name}")
 
-    # ─── 2. Mann-Whitney U: ppo_chaos vs ppo_ideal por nivel de caos ───────
-    print("\n[2/4] Prueba Mann-Whitney U: ppo_chaos vs ppo_ideal...")
+    # ─── 2. Mann-Whitney U + Wilcoxon sobre delay_mean Y cvar_95 (todos los pares RL) ───
+    print("\n[2/4] Prueba Mann-Whitney U + Wilcoxon sobre delay_mean y cvar_95 (todos los pares RL)...")
     mw_rows = []
     mw_lines = []
-    mw_lines.append("| Caos % | U stat | p-value | Signif. | r (effect size) | Magnitud | Mediana H-SARG Caos | Mediana H-SARG Ideal |")
-    mw_lines.append("|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|")
+    mw_lines.append("| Par de Modelos | Caos % | Métrica | U stat | p-value | Signif. | r (effect) | Magnitud | Mediana A | Mediana B |")
+    mw_lines.append("|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|")
 
-    for cl in chaos_levels:
-        x_chaos = df[(df["agent"] == "ppo_chaos") & (df["chaos_level"] == cl)]["delay_mean"].dropna().values
-        x_ideal = df[(df["agent"] == "ppo_ideal") & (df["chaos_level"] == cl)]["delay_mean"].dropna().values
-
-        if len(x_chaos) < 3 or len(x_ideal) < 3:
+    for agent_a, agent_b, pair_label in RL_PAIRS:
+        agents_in_df = df["agent"].unique()
+        if agent_a not in agents_in_df or agent_b not in agents_in_df:
+            print(f"   [SKIP] {pair_label}: uno o ambos agentes no encontrados en CSV.")
             continue
 
-        u_stat, p_val = stats.mannwhitneyu(x_chaos, x_ideal, alternative='two-sided')
-        r = rank_biserial_r(x_chaos, x_ideal)
-        sig = stars(p_val)
-        mag = effect_size_label(r)
-        med_chaos = np.median(x_chaos)
-        med_ideal = np.median(x_ideal)
-        chaos_pct = f"{cl*100:.0f}%"
+        for metric in ["delay_mean", "cvar_95"]:
+            metric_col = metric if metric in df.columns else None
+            if metric_col is None:
+                continue
 
-        row = {
-            "chaos_level": cl,
-            "test": "Mann-Whitney U",
-            "comparison": "ppo_chaos vs ppo_ideal",
-            "U_statistic": round(u_stat, 4),
-            "p_value": round(p_val, 6),
-            "significant": p_val < ALPHA,
-            "stars": sig,
-            "effect_size_r": round(r, 4),
-            "effect_magnitude": mag,
-            "median_ppo_chaos": round(med_chaos, 2),
-            "median_ppo_ideal": round(med_ideal, 2),
-        }
-        mw_rows.append(row)
-        mw_lines.append(
-            f"| {chaos_pct} | {u_stat:.1f} | {p_val:.4f} | {sig} | "
-            f"{r:.3f} | {mag} | {med_chaos:.1f} s | {med_ideal:.1f} s |"
-        )
-        print(f"   Caos {chaos_pct}: U={u_stat:.1f}, p={p_val:.4f}{sig}, r={r:.3f} ({mag})")
-        print(f"   >> Mediana ppo_chaos={med_chaos:.1f}s | ppo_ideal={med_ideal:.1f}s")
+            for cl in chaos_levels:
+                x_a = df[(df["agent"] == agent_a) & (df["chaos_level"] == cl)][metric_col].dropna().values
+                x_b = df[(df["agent"] == agent_b) & (df["chaos_level"] == cl)][metric_col].dropna().values
+
+                if len(x_a) < 3 or len(x_b) < 3:
+                    continue
+
+                u_stat, p_val = stats.mannwhitneyu(x_a, x_b, alternative='two-sided')
+                r = rank_biserial_r(x_a, x_b)
+                sig = stars(p_val)
+                mag = effect_size_label(r)
+                med_a = np.median(x_a)
+                med_b = np.median(x_b)
+                chaos_pct = f"{cl*100:.0f}%"
+
+                row = {
+                    "chaos_level": cl,
+                    "test": "Mann-Whitney U",
+                    "comparison": pair_label,
+                    "metric": metric,
+                    "U_statistic": round(u_stat, 4),
+                    "p_value": round(p_val, 6),
+                    "significant": p_val < ALPHA,
+                    "stars": sig,
+                    "effect_size_r": round(r, 4),
+                    "effect_magnitude": mag,
+                    "median_a": round(med_a, 2),
+                    "median_b": round(med_b, 2),
+                }
+                mw_rows.append(row)
+                mw_lines.append(
+                    f"| {pair_label} | {chaos_pct} | {metric} | {u_stat:.1f} | {p_val:.4f} | {sig} | "
+                    f"{r:.3f} | {mag} | {med_a:.1f} | {med_b:.1f} |"
+                )
+
+        print(f"   OK {pair_label}")
 
     mw_table_md = "\n".join(mw_lines)
 
@@ -242,13 +264,15 @@ def main():
 
     kw_table_md = "\n".join(kw_lines)
 
-    # ─── 4. Tabla de Colapso Doctoral ──────────────────────────────────────
-    print("\n[4/4] Calculando tasa de colapso (gridlock rate)...")
+    # ─── 4. Tabla de Colapso + Análisis Gini Condicional ─────────────────────
+    print("\n[4/4] Calculando tasa de colapso y analisis Gini condicional...")
+
+    # 4a. Tabla de colapso — todos los modelos RL
     collapse_lines = []
-    collapse_lines.append("| Controlador | Caos % | Tasa Colapso (%) | Mediana (s) | IQR (s) | CVaR₉₅ (s) |")
+    collapse_lines.append("| Controlador | Caos % | Tasa Colapso (%) | Mediana Delay (s) | IQR (s) | CVaR₉₅ (s) |")
     collapse_lines.append("|:---|:---:|:---:|:---:|:---:|:---:|")
 
-    rl_models = ["ppo_chaos", "ppo_ideal"]
+    rl_models = [a for a in ["ppo_ideal", "ppo_chaos", "ppo_coop_ideal", "ppo_coop_chaos"] if a in df["agent"].unique()]
     for agent in rl_models:
         for cl in chaos_levels:
             sub = df[(df["agent"] == agent) & (df["chaos_level"] == cl)]["delay_mean"].dropna()
@@ -260,6 +284,29 @@ def main():
             )
 
     collapse_table_md = "\n".join(collapse_lines)
+
+    # 4b. Análisis Gini Condicional: Gridlock vs Nominal
+    print("   Calculando Gini condicional (gridlock vs nominal)...")
+    gini_lines = []
+    gini_lines.append("| Controlador | Caos % | Gini Nominal (delay<2000s) | Gini Gridlock (delay>2000s) | Episodios Gridlock |")
+    gini_lines.append("|:---|:---:|:---:|:---:|:---:|")
+
+    all_rl = [a for a in AGENT_ORDER if a in df["agent"].unique()]
+    for agent in all_rl:
+        for cl in chaos_levels:
+            sub = df[(df["agent"] == agent) & (df["chaos_level"] == cl)]
+            nominal = sub[sub["delay_mean"] < GRIDLOCK_THRESHOLD]["gini_mean"].dropna()
+            gridlock = sub[sub["delay_mean"] >= GRIDLOCK_THRESHOLD]["gini_mean"].dropna()
+            gini_nom = f"{nominal.median():.3f}" if len(nominal) > 0 else "—"
+            gini_grid = f"{gridlock.median():.3f}" if len(gridlock) > 0 else "—"
+            n_grid = len(gridlock)
+            gini_lines.append(
+                f"| {LABELS.get(agent, agent)} | {cl*100:.0f}% | "
+                f"{gini_nom} | {gini_grid} | {n_grid} |"
+            )
+
+    gini_cond_table_md = "\n".join(gini_lines)
+    print(f"   OK Analisis Gini condicional completado.")
 
     # ─── Exportar resultados CSV ────────────────────────────────────────────
     # Exportar Mann-Whitney y Kruskal-Wallis como CSVs separados
@@ -286,7 +333,9 @@ def main():
 
 ---
 
-### Comparación H-SARG Caótico vs H-SARG Ideal (Mann-Whitney U)
+### Comparaciones por Pares RL — delay\_mean y cvar\_95 (Mann-Whitney U)
+
+*(Incluye modelos originales y variantes cooperativas)*
 
 {mw_table_md}
 
@@ -300,11 +349,19 @@ def main():
 
 ---
 
-### Tabla de Tasa de Colapso de Red (Gridlock Rate)
+### Tabla de Tasa de Colapso de Red — 4 Modelos RL
 
 *(Umbral de gridlock: Delay > {GRIDLOCK_THRESHOLD:.0f} s por episodio)*
 
 {collapse_table_md}
+
+---
+
+### Análisis de Equidad Condicional — Gini en Régimen Nominal vs Gridlock
+
+*(Valida H3/RQ4: el Índice de Gini colapsa durante episodios de gridlock, demostrando que las métricas de equidad son estables solo en condiciones nominales)*
+
+{gini_cond_table_md}
 
 ---
 *Análisis generado automáticamente por `statistical_analysis.py` — TSC Framework Doctoral.*

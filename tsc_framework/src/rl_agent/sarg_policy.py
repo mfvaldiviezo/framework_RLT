@@ -78,7 +78,7 @@ class HSARGExtractor(BaseFeaturesExtractor):
         # Buffer en CPU para extraer los pesos de atención en tiempo real (XAI)
         self.last_attention_weights = None
 
-        logger.info("🧠 Arquitectura H-SARG inicializada con éxito en PyTorch.")
+        logger.info(" Arquitectura H-SARG inicializada con éxito en PyTorch.")
         logger.info("   Rama Nominal: 10-D -> LayerNorm(32)")
         logger.info("   Rama Riesgo : 24-D -> Embed(16) -> MHSA(2 Heads) -> Sigmoid Gating")
         logger.info("   Dimensión Final Fusionada: %d", features_dim)
@@ -199,7 +199,7 @@ class CoopSARGExtractor(BaseFeaturesExtractor):
         self.last_attention_weights = None
         self.last_cooperative_gates = None
 
-        logger.info("✨ Nueva arquitectura Coop-SARG con Garantía de Equidad, Explicabilidad y Resiliencia inicializada.")
+        logger.info(" Nueva arquitectura Coop-SARG con Garantía de Equidad, Explicabilidad y Resiliencia inicializada.")
 
     def forward(self, observations: torch.Tensor) -> torch.Tensor:
         batch_size = observations.shape[0]

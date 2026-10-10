@@ -391,3 +391,15 @@ Se consolidan las respuestas técnicas definitivas ante las objeciones del jurad
 
 ### 🌟 CONCLUSIONES GENERALES DE LA TESIS
 El presente informe unificado de metodología y resultados de Marcelo proporciona una **base empírica y conceptual irrefutable** para su defensa doctoral. El framework modular `tsc_framework` demuestra que entrenar con estrés conductual (PoliDriving + Vine Copulas + LatamChaosManager) regulariza la política de control neuronal de H-SARG, induciendo resiliencia y antifragilidad. Sus resultados superan el estado del arte y están listos para la defensa académica con honores.
+
+---
+
+## 🛑 17. LIMITACIONES Y ALCANCE DE LA INVESTIGACIÓN (CAVEATS)
+
+Para mantener el máximo rigor académico y la transparencia metodológica exigida por el tribunal, se declaran explícitamente las siguientes limitaciones y acotaciones sobre los experimentos reportados:
+
+1. **Ausencia de métricas de Throughput y Travel Time en la Fase de Transferencia:** Por rigor de trazabilidad, dado que los archivos CSV maestros de la evaluación zero-shot no incluyen registros explícitos de rendimiento volumétrico bruto (*throughput*) ni tiempo de viaje global (*travel time*), esta tesis se abstiene de realizar afirmaciones concluyentes sobre dichas métricas en la fase transregional. Las conclusiones se limitan estrictamente a los estadísticos recolectados de forma continua: Delay, Gini, CVaR, Longitud de Colas y Tasa de Colapso.
+2. **Inferencia Estadística Acotada:** Las pruebas de significancia no paramétricas (Kruskal-Wallis, Mann-Whitney U) presentadas se aplican y reportan exclusivamente como evidencia auxiliar para la fase de entrenamiento y validación en la red controlada (Hangzhou). Para la fase de transferencia multiciudad zero-shot, la tesis se adhiere puramente a estadística descriptiva robusta (medianas y rangos intercuartílicos) debido a la extrema heterogeneidad topológica que invalida los supuestos probabilísticos de comparabilidad directa.
+3. **Brecha Simulación vs. Realidad (Sim-to-Real Gap):** El módulo `LatamChaosManager` constituye una aproximación fenomenológica y algorítmica inspirada en datos de siniestralidad real (Proyecto POLIDriving). No debe interpretarse como un gemelo digital exacto del comportamiento humano, sino como un generador de entropía sintética estructurada diseñado para inducir estrés operacional en el agente.
+4. **Módulos de Estrés Desactivados:** Aunque el inyector de estrés de la arquitectura (`stress_injector.py`) posee rutinas programadas para `DEMAND_SURGE` (picos anómalos de demanda) y `COMMUNICATION_DELAY` (latencia en los sensores/actuadores TraCI), estos módulos no fueron activados en la campaña experimental final de 92 horas reportada en este documento.
+5. **Anomalía en el Benchmark SOTA de MPLight:** Durante la ejecución del framework RESCO, el algoritmo *MPLight* presentó fallos de ejecución críticos derivados de un bug inherente en el repositorio original (incompatibilidad con topologías complejas de 8 fases). En consecuencia, los resultados comparativos asociados a MPLight en el estado del arte deben interpretarse con cautela metodológica.

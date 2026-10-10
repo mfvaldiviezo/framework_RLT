@@ -6,8 +6,9 @@ def run_resco_experiment(scenario_type="ideal", algorithm="ipql"):
     """
     Ejecuta el benchmark RESCO con el tráfico ideal o LATAM.
     """
-    # Cambiar al directorio raiz de RESCO
-    resco_dir = os.path.join("baselines", "RESCO")
+    # Cambiar al directorio raiz de RESCO de forma absoluta
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    resco_dir = os.path.join(base_dir, "baselines", "RESCO")
     
     # Seleccionamos la ruta dependiendo del escenario
     # En RESCO, la ruta de los escenarios asume ./resco_benchmark/environments/...
@@ -22,7 +23,7 @@ def run_resco_experiment(scenario_type="ideal", algorithm="ipql"):
             shutil.copy(route_ideal, route_latam)
             
     print(f"\n{'='*50}")
-    print(f"🚦 Evaluando Tráfico {scenario_type.upper()} con RESCO SOTA ({algorithm})")
+    print(f" Evaluando Tráfico {scenario_type.upper()} con RESCO SOTA ({algorithm})")
     print(f"{'='*50}")
     
     # Normalizar nombres CLI → nombres internos de RESCO
